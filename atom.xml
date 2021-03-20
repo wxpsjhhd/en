@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IdeFun Blog</title>
+  <icon>http://en.idefun.com/icon.png</icon>
+  <subtitle>It&#39;s so dark that you can see the stars better</subtitle>
+  <link href="http://en.idefun.com/atom.xml" rel="self"/>
+  
+  <link href="http://en.idefun.com/"/>
+  <updated>2021-03-06T06:47:39.353Z</updated>
+  <id>http://en.idefun.com/</id>
+  
+  <author>
+    <name>IdeFun</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello world</title>
+    <link href="http://en.idefun.com/article/8bd69e52.html"/>
+    <id>http://en.idefun.com/article/8bd69e52.html</id>
+    <published>2021-03-06T05:42:18.000Z</published>
+    <updated>2021-03-06T06:47:39.353Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Hello-world&quot;&gt;&lt;a href=&quot;#Hello-world&quot; class=&quot;headerlink&quot; title=&quot;Hello world!&quot;&gt;&lt;/a&gt;Hello world!&lt;/h1&gt;</summary>
+    
+    
+    
+    
+  </entry>
+  
+</feed>

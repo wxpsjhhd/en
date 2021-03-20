@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>IdeFun Blog</title>
+  <title>IdeFun</title>
   <icon>http://en.idefun.com/icon.png</icon>
   <subtitle>It&#39;s so dark that you can see the stars better</subtitle>
   <link href="http://en.idefun.com/atom.xml" rel="self"/>

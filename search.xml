@@ -1,6 +1,385 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Build assembly language development environment under Windows 10</title>
+    <url>/article/52930a0d.html</url>
+    <content><![CDATA[<h1 id="Build-assembly-language-development-environment-under-Windows-10"><a href="#Build-assembly-language-development-environment-under-Windows-10" class="headerlink" title="Build assembly language development environment under Windows 10"></a>Build assembly language development environment under Windows 10</h1><a id="more"></a>
+<h2 id="Foreword"><a href="#Foreword" class="headerlink" title="Foreword"></a>Foreword</h2><p>This semester school has arranged the assembly language course, and you need to build your own assembly language development environment. Hereby write down this article to record the construction process.</p>
+<p>I have also found a lot of tutorials on setting up an assembly language development environment, but I am still at a loss after reading it.After I have explored, and combined with online tutorials, I want to write this easy-to-understand article.</p>
+<h2 id="Ready-to-work"><a href="#Ready-to-work" class="headerlink" title="Ready to work"></a>Ready to work</h2><h3 id="1-Download-DOSBox"><a href="#1-Download-DOSBox" class="headerlink" title="1. Download DOSBox"></a>1. Download DOSBox</h3><p>Tool introduction: DOSBox is a DOS simulation program. Because it uses the SDL library, it can be easily ported to other platforms. At present, DOSBox has been supported on Windows, Linux, Mac OS X, BeOS, palmOS, Android, webOS , OS/2 and other systems. Many games under DOS can be run directly on this platform.</p>
+<p>Tool official website:</p>
+<p><a href="http://www.dosbox.com/" class="LinkCard" target="_blank">Tool official website</a></p>
+<p>Project homepage:</p>
+<p><a href="http://sourceforge.net/projects/dosbox" class="LinkCard" target="_blank">Project homepage</a></p>
+<p>Download link 1 (32-bit):</p>
+<p><a href="http://sourceforge.net/projects/dosbox/files/dosbox/0.74/DOSBox0.74-win32-installer.exe/download/" class="LinkCard" target="_blank">Download link 1 </a></p>
+<p>Download link 2 (this is what I downloaded, it may be faster):</p>
+<p><a href="https://idefun.lanzous.com/i91Xpm4qzyb" class="LinkCard">Download link 2</a></p>
+<h3 id="2-Download-the-assembly-toolkit"><a href="#2-Download-the-assembly-toolkit" class="headerlink" title="2. Download the assembly toolkit"></a>2. Download the assembly toolkit</h3><p>Download link:</p>
+<p><a href="https://idefun.lanzous.com/i4TQgm4zjkf/" class="LinkCard" target="_blank">download link</a></p>
+<p>Screenshot of assembly tool</p>
+<p><img src="https://i.loli.net/2021/02/25/vmXynkcD7V3bwEe.png" alt=""></p>
+<h2 id="Installation-tutorial"><a href="#Installation-tutorial" class="headerlink" title="Installation tutorial"></a>Installation tutorial</h2><h3 id="1-Install-DOSBox"><a href="#1-Install-DOSBox" class="headerlink" title="1. Install DOSBox"></a>1. Install DOSBox</h3><p>Double-click to run the DOSBox installer</p>
+<p><img src="https://i.loli.net/2021/02/25/X7F4cripOvBg1ex.png" alt=""></p>
+<p>Click next</p>
+<p><img src="https://i.loli.net/2021/02/25/QXCsuzLV2YNwFBJ.png" alt=""></p>
+<p>Click next</p>
+<p><img src="https://i.loli.net/2021/02/25/Tr6jgH7u5XQElVD.png" alt=""></p>
+<p>Select the installation location (I choose D:\DOSBox) and click install</p>
+<p><img src="https://i.loli.net/2021/02/25/37Nqut1AGRfmYyx.png" alt=""></p>
+<p>Remember the installation location and use it later</p>
+<h3 id="2-Create-a-working-directory"><a href="#2-Create-a-working-directory" class="headerlink" title="2. Create a working directory"></a>2. Create a working directory</h3><p>After installation, create a working directory (directory location and directory name can be customized)</p>
+<p>Mine is in D:/DOSBox/Debug</p>
+<p><img src="https://i.loli.net/2021/02/25/mGS1D2g8eMP6Bpx.png" alt=""></p>
+<p>Then create two folders ASM (put your own assembler) and MASM (put assembly tool) under Debug</p>
+<p><img src="https://i.loli.net/2021/02/25/OWEklSHxi1BeqbM.png" alt=""></p>
+<p>Put the assembly tool into the MASM folder</p>
+<p><img src="https://i.loli.net/2021/02/25/doXaBf7hCV4MmjH.png" alt=""></p>
+<h3 id="3-Mount-the-working-directory"><a href="#3-Mount-the-working-directory" class="headerlink" title="3. Mount the working directory"></a>3. Mount the working directory</h3><p>Open the DOSBox installation directory (mine is in D:\DOSBox)</p>
+<p><img src="https://i.loli.net/2021/02/25/5GCfg6hOt8UHvbi.png" alt=""></p>
+<p>After opening, find the batch file DOSBox 0.74 Options.bat</p>
+<p><img src="https://i.loli.net/2021/02/25/b15TdjRzCasUB8c.png" alt=""></p>
+<p>Just double-click to run it and a notepad will appear</p>
+<p><img src="https://i.loli.net/2021/02/25/pJPAUlga1SRvuse.png" alt=""></p>
+<p>Use the shortcut key Ctrl+F to find the [autoexec] part (usually at the end of the file)</p>
+<p><img src="https://i.loli.net/2021/02/25/PFvrz5jt4GAaDQb.png" alt=""></p>
+<p>Add the following content to the file and save</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MOUNT F D:\DOSBox\Debug</span><br><span class="line">set PATH&#x3D;%PATH%;F:\MASM;</span><br><span class="line">F:</span><br><span class="line">cd F:\ASM</span><br><span class="line">cls</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210302185912863.png" alt=""></p>
+<p>Command explanation:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#Mount the working directory to the virtual drive letter F (the virtual drive letter can be customized, and the command is not case sensitive)</span><br><span class="line">MOUNT F D:\DOSBox\Debug</span><br><span class="line">#Add system temporary variables (F at this time stands for D:\DOSBox\Debug)</span><br><span class="line">set PATH&#x3D;%PATH%;F:\MASM;</span><br><span class="line">#Go to F drive letter</span><br><span class="line">F:</span><br><span class="line">#Switch to the F:\ASM directory</span><br><span class="line">cd F:\ASM</span><br><span class="line">#Perform a clear screen</span><br><span class="line">cls</span><br><span class="line">​&#96;&#96;&#96;</span><br></pre></td></tr></table></figure>
+<p>If you don’t add ‘cls’, it will be like this when you open it</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/GtgYexwQulLnOKk.png" alt=""></p>
+<p>With ‘cls’, it will be like this when opened (I think it is more beautiful, according to personal preference)</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210302190118748.png" alt=""></p>
+<p>Note: Without this configuration, you need to manually enter the above command every time you open DOSBox, which is very troublesome</p>
+<h2 id="Instructions-for-use"><a href="#Instructions-for-use" class="headerlink" title="Instructions for use"></a>Instructions for use</h2><h3 id="DOSBox-commonly-used-shortcut-keys"><a href="#DOSBox-commonly-used-shortcut-keys" class="headerlink" title="DOSBox commonly used shortcut keys"></a>DOSBox commonly used shortcut keys</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Shortcut key</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alt+Enter</td>
+<td>Toggle full screen</td>
+</tr>
+<tr>
+<td>Ctr+F1</td>
+<td>Change keyboard mapping</td>
+</tr>
+<tr>
+<td>Alt+Pause</td>
+<td>Pause simulation</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+F5</td>
+<td>Start/Stop video recording</td>
+</tr>
+<tr>
+<td>Ctrl+F4</td>
+<td>Exchange the mounted disk image, that is, update the disk file</td>
+</tr>
+<tr>
+<td>Ctrl+F5</td>
+<td>Screenshot</td>
+</tr>
+<tr>
+<td>Ctrl+F6</td>
+<td>Start/Stop recording sound</td>
+</tr>
+<tr>
+<td>Ctrl+F7</td>
+<td>Reduce frame skipping</td>
+</tr>
+<tr>
+<td>Ctrl+F8</td>
+<td>Increase frame skip</td>
+</tr>
+<tr>
+<td>Ctrl+F9</td>
+<td>Close DOSBOX</td>
+</tr>
+<tr>
+<td>Ctrl+F10</td>
+<td>Capture/Release the mouse</td>
+</tr>
+<tr>
+<td>Ctrl+F11</td>
+<td>Simulate deceleration</td>
+</tr>
+<tr>
+<td>Ctrl+F12</td>
+<td>Speed up simulation</td>
+</tr>
+<tr>
+<td>Alt+F12</td>
+<td>Do not lock the speed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Note: I have not tested all of the above shortcut keys. For more detailed information, see README.txt (in the Documentation in the DOSBox installation directory)</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228111902877.png" alt=""></p>
+<h3 id="Adjust-the-window-size"><a href="#Adjust-the-window-size" class="headerlink" title="Adjust the window size"></a>Adjust the window size</h3><p>The initial interface is very small, and the interface cannot be stretched directly, so if you need it, you can adjust it according to the following method<br>Double click to open DOSBox 0.74 Options.bat</p>
+<p>Use the shortcut key Ctrl+F to find the windowresolution field</p>
+<p><img src="https://i.loli.net/2021/02/25/8hrbIxNBJZQ723k.png" alt=""></p>
+<p>will</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">windowresolution&#x3D;original</span><br><span class="line">output&#x3D;surface</span><br></pre></td></tr></table></figure>
+<p>To</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">windowresolution&#x3D;800x500 #800x500 is a custom size and can be modified</span><br><span class="line">output&#x3D;opengl</span><br></pre></td></tr></table></figure>
+<p>Note: No need to delete the original sentence, just add # in front of the comment.</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/YZwN2LOQPTuG8Wv.png" alt=""></p>
+<p>After saving, restart DOSBox to take effect</p>
+<h3 id="Create-and-edit-files"><a href="#Create-and-edit-files" class="headerlink" title="Create and edit files"></a>Create and edit files</h3><p>Regarding creating and editing files, if your working directory (mounting directory) has an EDIT.COM file (in the assembly toolkit I provided), then you can create and edit the file in DOSBox. If not, please use me The provided toolkit or look down patiently.</p>
+<h4 id="Use-DOSBox-to-create-and-edit-files-not-recommended"><a href="#Use-DOSBox-to-create-and-edit-files-not-recommended" class="headerlink" title="Use DOSBox to create and edit files (not recommended)"></a>Use DOSBox to create and edit files (not recommended)</h4><p>Open DOSBox and use the following commands to create and edit the test.asm file</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">edit test.asm</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2021/02/25/ZWr6DIB4qxb9VEd.png" alt=""></p>
+<p>Press Enter and enter the following interface to edit (note: the mouse arrow can only be active in the editor, if you want to exit the mouse, you can use the Ctrl+F10 key combination to exit)</p>
+<p><img src="https://i.loli.net/2021/02/25/WYMSUboDf82N7cG.png" alt=""></p>
+<h4 id="Use-Notepad-to-create-and-edit-files-other-editors-are-also-available"><a href="#Use-Notepad-to-create-and-edit-files-other-editors-are-also-available" class="headerlink" title="Use Notepad to create and edit files (other editors are also available)"></a>Use Notepad to create and edit files (other editors are also available)</h4><p>Create the test.asm file in this way below</p>
+<p>Create a new text document, copy the following code into it and save</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">datas segment</span><br><span class="line">buf db&#39;Hello, World!$&#39;</span><br><span class="line">datas ends</span><br><span class="line"></span><br><span class="line">stacks segment stack</span><br><span class="line">db 200 dup(0)</span><br><span class="line">stacks ends</span><br><span class="line"></span><br><span class="line">codes segment</span><br><span class="line">assume cs:codes,ds:datas,ss:stacks</span><br><span class="line">start:</span><br><span class="line">mov ax,datas</span><br><span class="line">mov ds,ax</span><br><span class="line"></span><br><span class="line">mov dx,seg buf</span><br><span class="line">lea dx,buf</span><br><span class="line">mov ah,09h</span><br><span class="line">int 21h</span><br><span class="line"></span><br><span class="line">mov ah,4ch</span><br><span class="line">int 21h</span><br><span class="line">codes ends</span><br><span class="line">end start</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/lfQUBhXntJYV5qK.png" alt=""></p>
+<p>Rename it to test.asm afterwards</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/lfQUBhXntJYV5qK.png" alt=""></p>
+<h3 id="Compile-and-debug"><a href="#Compile-and-debug" class="headerlink" title="Compile and debug"></a>Compile and debug</h3><p>Open DOSBox and enter the following command</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">masm test.asm</span><br></pre></td></tr></table></figure>
+<p>After you press Enter, you will be asked for the file name, and it is recommended to press Enter directly</p>
+<p>The compiler prompts to enter the name of the cross-reference file. This file is the same as the list file. It is an intermediate result produced by the compiler in the process of compiling the source program into the target file. You can let the compiler not generate this file, just press the Enter key.</p>
+<p><img src="https://i.loli.net/2021/02/25/VhRfkGB84zJyHAS.png" alt="image-20210225195117402"></p>
+<p><img src="https://i.loli.net/2021/02/25/bYF13Vaz48fQ6uM.png" alt=""></p>
+<p>You can enter the file name separately like the above picture, and open ASM to view the following</p>
+<p><img src="https://i.loli.net/2021/02/25/TEDcVGa7yMz2SXJ.png" alt=""></p>
+<p>This article is all by default, that is, press Enter without entering the file name separately</p>
+<p><img src="https://i.loli.net/2021/02/25/wfoIpsM62gWbFiz.png" alt=""></p>
+<p>Open the ASM folder and view as follows</p>
+<p><img src="https://i.loli.net/2021/02/25/TdPkfD7oRp5aZrB.png" alt=""></p>
+<p>Continue to enter the command</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link test.obj</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/d5LQbCi9n1AOPSk.png" alt=""></p>
+<p>After running, check the ASM folder</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/d5LQbCi9n1AOPSk.png" alt=""></p>
+<p>Continue to execute the following commands</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">debug test.exe</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.loli.net/2021/02/25/7zr4gBpDmUGi9nx.png" alt=""></p>
+<h3 id="Simple-use-of-debug"><a href="#Simple-use-of-debug" class="headerlink" title="Simple use of debug"></a>Simple use of debug</h3><p>debug is a debugging tool for real mode (8086 mode) programs provided by Dos and Windows</p>
+<ul>
+<li>You can view the contents of various registers of the CPU</li>
+<li>You can check the status of the memory</li>
+<li>Can track the operation of the program at the machine code level</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R command</td>
+<td>View and change the contents of CPU registers</td>
+</tr>
+<tr>
+<td>D command</td>
+<td>View the contents of the memory (in the form of machine instructions) (displayed in hexadecimal)</td>
+</tr>
+<tr>
+<td>E command</td>
+<td>Rewrite the content in the memory, that is, provide instructions (using machine instructions), which are used less, mostly A commands</td>
+</tr>
+<tr>
+<td>U command</td>
+<td>View the contents of the memory (convert the form of machine instructions to the form of assembly instructions) (decompilation)</td>
+</tr>
+<tr>
+<td>T command</td>
+<td>Execute an assembly (machine) instruction (that is, execute the instruction in the current instruction buffer)</td>
+</tr>
+<tr>
+<td>A command</td>
+<td>Compared with E, write a machine instruction in the memory in the form of assembly instruction</td>
+</tr>
+<tr>
+<td>P command</td>
+<td>When the assembly instruction is int xx, use the p instruction to end (otherwise the CPU will point to an unknown address segment)</td>
+</tr>
+<tr>
+<td>G command</td>
+<td>After executing the exe run result display</td>
+</tr>
+<tr>
+<td>Q command</td>
+<td>Exit debug</td>
+</tr>
+<tr>
+<td>? Command</td>
+<td>View command help</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="R-command"><a href="#R-command" class="headerlink" title="R command"></a>R command</h4><h5 id="View-the-contents-of-CPU-registers"><a href="#View-the-contents-of-CPU-registers" class="headerlink" title="View the contents of CPU registers"></a>View the contents of CPU registers</h5><p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210301085326154.png" alt=""></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Tag name</th>
+<th>set</th>
+<th>reset</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Overflow (whether)</td>
+<td>OV</td>
+<td>NV</td>
+</tr>
+<tr>
+<td>To Direction (decrease/increase)</td>
+<td>DN</td>
+<td>UP</td>
+</tr>
+<tr>
+<td>Interrupt (allow/mask)</td>
+<td>EI</td>
+<td>DI</td>
+</tr>
+<tr>
+<td>Sign (negative positive)</td>
+<td>NG</td>
+<td>PL</td>
+</tr>
+<tr>
+<td>Zero (yes)</td>
+<td>ZR</td>
+<td>NZ</td>
+</tr>
+<tr>
+<td>Auxiliary Carry (yes)</td>
+<td>AC</td>
+<td>NA</td>
+</tr>
+<tr>
+<td>Parity (even odd)</td>
+<td>PE</td>
+<td>PO</td>
+</tr>
+<tr>
+<td>Carry Carry (whether)</td>
+<td>CY</td>
+<td>NC</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="Change-the-content-of-the-CPU-register"><a href="#Change-the-content-of-the-CPU-register" class="headerlink" title="Change the content of the CPU register"></a>Change the content of the CPU register</h5><h6 id="Change-the-value-of-the-register"><a href="#Change-the-value-of-the-register" class="headerlink" title="Change the value of the register"></a>Change the value of the register</h6><p>If you want to modify the value in a register, such as the value in AX, you can add the register name after the R command, enter “r ax” and press the Enter key, and “:” will appear as an input prompt. Enter the value to be written later After the data, press the Enter key (press Enter directly to exit the modification), that is, the modification of the content in AX is completed. If you want to see the modified result, you can use the R command to view it again (there is no need between the R command and the register name). Spaces)</p>
+<p><img src="https://i.loli.net/2021/02/25/rOLVwamUWvylcnE.png" alt=""></p>
+<h6 id="Change-the-value-of-CS-IP"><a href="#Change-the-value-of-CS-IP" class="headerlink" title="Change the value of CS:IP"></a>Change the value of CS:IP</h6><p><img src="https://i.loli.net/2021/02/25/tdvuEMzlSUHI79C.png" alt=""></p>
+<h6 id="Change-the-value-of-the-flag"><a href="#Change-the-value-of-the-flag" class="headerlink" title="Change the value of the flag"></a>Change the value of the flag</h6><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rf</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210301095739288.png" alt=""></p>
+<h4 id="D-command"><a href="#D-command" class="headerlink" title="D command"></a>D command</h4><p>Using the D command, you can view the contents of the memory, and debug will output 3 parts:</p>
+<ol>
+<li>The middle is the content of 128 memory cells starting from the specified address, output in hexadecimal format, the output of each line starts from the address of an integer multiple of 16, and the content of up to 16 cells is output. Note that in each line There is a “-“ in the middle, which divides the output of each line into two parts, so that it is easy to view</li>
+<li>On the left is the starting address of each line</li>
+<li>On the right are the displayable ASCII characters corresponding to the data in each memory unit. If there is no corresponding displayable ASCII character, debug will use “.” instead</li>
+</ol>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228122306758.png" alt=""></p>
+<blockquote>
+<p>Note that the content of the memory we see is different in different computers, and it may be used every time<br>Debug sees different content, because what we see with Debug is the content that was originally in the memory, which is affected by the system environment that may change at any time. Of course, we can also change the memory and registers Content in</p>
+</blockquote>
+<p>After entering the debug, use the D command to view it directly, and the content at the address preset by the debug will be listed</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228123326498.png" alt=""></p>
+<p>Use d segment address: offset address view (take d 1000:0 as an example)</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Format: d segment address: offset address</span><br><span class="line">Use the &quot;d segment address: offset address&quot; format to view, debug will list the contents of 128 memory units starting from the specified memory unit</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228122452594.png" alt=""></p>
+<p>After using “d segment address: offset address”, then use the D command to list the subsequent content</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228123739626.png" alt=""></p>
+<p>You can also specify the viewing range of the D command. At this time, use the format of “d segment address: start offset address end offset address”</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228123922247.png" alt=""></p>
+<p>If the input address is not a multiple of 16, the output effect is like this</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228123042937.png" alt=""></p>
+<h4 id="E-command"><a href="#E-command" class="headerlink" title="E command"></a>E command</h4><p>Rewrite the contents of the memory, but in the form of machine instructions</p>
+<p>Write the contents of the memory unit 1000:0-1000:9 as 0, 1, 2, 3…., 9, and you can use the format of “e segment address: starting address data data data $\cdots $” To proceed</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228132259802.png" alt=""></p>
+<p>Use the E command to modify the contents of the memory unit starting from a certain address one by one by asking questions</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228132759807.png" alt=""></p>
+<ul>
+<li>The red part is the modified data entered by the user. When it reaches a certain memory unit, you can choose to modify (enter the value to be modified) or not to modify (press the space directly). After processing a memory unit, press the space To continue processing the next memory unit; after all processing is complete, press enter</li>
+</ul>
+<p>You can use the E command to write characters to the memory</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228133235259.png" alt=""></p>
+<p>You can also use the E command to write a string to the memory</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228133636393.png" alt=""></p>
+<h4 id="U-command"><a href="#U-command" class="headerlink" title="U command"></a>U command</h4><p>For the machine code disassembly display, the display output of the U command is divided into 3 parts, the address of each machine instruction, the machine instruction, and the assembly instruction corresponding to the machine instruction</p>
+<h5 id="Disassemble-by-address"><a href="#Disassemble-by-address" class="headerlink" title="Disassemble by address"></a>Disassemble by address</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">u address</span><br></pre></td></tr></table></figure>
+<p>The command starts from the specified address and disassembles 32 bytes. If the address is omitted, 32 bytes are displayed starting from the next unit of the last instruction of the previous U command</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210301100802300.png" alt=""></p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210301100844123.png" alt=""></p>
+<h5 id="Disassemble-by-range"><a href="#Disassemble-by-range" class="headerlink" title="Disassemble by range"></a>Disassemble by range</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">u range</span><br></pre></td></tr></table></figure>
+<h4 id="T-command"><a href="#T-command" class="headerlink" title="T command"></a>T command</h4><h5 id="Command-format"><a href="#Command-format" class="headerlink" title="Command format"></a>Command format</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">T [&#x3D;address] [number of instructions]</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309132037512.png" alt=""></p>
+<h5 id="Use-the-T-command-to-execute-the-command-pointed-to-by-CS-IP"><a href="#Use-the-T-command-to-execute-the-command-pointed-to-by-CS-IP" class="headerlink" title="Use the T command to execute the command pointed to by CS:IP"></a>Use the T command to execute the command pointed to by CS:IP</h5><p>First use the E command to write 8 bytes of machine code to the memory unit starting from 1000:0</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">e 1000:0 b8 01 00 b9 02 00 01 c8</span><br></pre></td></tr></table></figure>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Machine code</th>
+<th>Corresponding assembly instructions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>b80100</td>
+<td>mov ax,0001</td>
+</tr>
+<tr>
+<td>b90200</td>
+<td>mov cx,0002</td>
+</tr>
+<tr>
+<td>01c8</td>
+<td>add ax,cx</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210301075936404.png" alt=""></p>
+<p>Then use the R command to view the status of the registers in the CPU, you can see that CS=0740H, IP=0100H, pointing to memory 0740:0100</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309112317133.png" alt=""></p>
+<p>If you want to use the T command to control the CPU to execute the instructions we wrote to 1000:0, you must first make CS:IP point to 1000:0; then use the R command to modify the contents of CS and IP so that CS:IP points to 1000:0</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309113531977.png" alt=""></p>
+<p>After completing the above steps, we can use the T command to execute the instructions we wrote (at this time, CS:IP points to the memory unit where our instructions are located). After executing the T command, the CPU executes the instructions pointed to by CS:IP, Then the instruction b8 01 00 (mov ax, 0001) at 1000:0 is executed. After the instruction is executed, Debug displays the status of the register in the output CPU</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309113809478.png" alt=""></p>
+<blockquote>
+<p>Note: After the instruction is executed, the content in AX is rewritten to 1, IP is changed to IP+3 (because the instruction length of mov ax,0001 is 3 bytes), CS:IP points to the next instruction</p>
+</blockquote>
+<p>Continue to use the T command to execute the following instructions</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309114535239.png" alt=""></p>
+<blockquote>
+<p>Use the T command to continue to execute the following instructions, pay attention to the changes in the contents of the CPU related registers after each instruction is executed</p>
+</blockquote>
+<h4 id="A-command"><a href="#A-command" class="headerlink" title="A command"></a>A command</h4><p>It is inconvenient to use the E command to write machine instructions. It is best to write the instructions directly in the form of assembly instructions. For this reason, Debug provides the A command, and the A command writes the machine instructions in the memory in the form of assembly instructions.</p>
+<p>First use the A command to write a few instructions to the memory unit starting from 1000:0 in assembly language, and then use the D command to view the execution result of the A command</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309115331666.png" alt=""></p>
+<p>It can be seen that when using the A command to write instructions, we input assembly instructions. Debug translates these assembly instructions into corresponding machine instructions and writes their machine code to memory.</p>
+<blockquote>
+<p>When using the A command to write assembly instructions, directly press the Enter key after the given start address to indicate the end of the operation</p>
+</blockquote>
+<p>If the A command is not followed by an address, input the command from the preset address</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210309115602136.png" alt=""></p>
+<h4 id="Command"><a href="#Command" class="headerlink" title="? Command"></a>? Command</h4><p>Type? to see more commands</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228112817615.png" alt=""></p>
+<p>The results are as follows:</p>
+<p><img src="https://gitee.com/wxpgitee/images/raw/master/image-20210228112748762.png" alt=""></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hello world</title>
     <url>/article/8bd69e52.html</url>
     <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>

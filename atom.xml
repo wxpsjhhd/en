@@ -6,7 +6,7 @@
   <link href="http://en.idefun.com/atom.xml" rel="self"/>
   
   <link href="http://en.idefun.com/"/>
-  <updated>2021-03-06T06:47:39.353Z</updated>
+  <updated>2021-03-21T03:17:52.607Z</updated>
   <id>http://en.idefun.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Build assembly language development environment under Windows 10</title>
+    <link href="http://en.idefun.com/article/52930a0d.html"/>
+    <id>http://en.idefun.com/article/52930a0d.html</id>
+    <published>2021-03-21T03:06:45.000Z</published>
+    <updated>2021-03-21T03:17:52.607Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Build-assembly-language-development-environment-under-Windows-10&quot;&gt;&lt;a href=&quot;#Build-assembly-language-development-environment-under-Windows-10&quot; class=&quot;headerlink&quot; title=&quot;Build assembly language development environment under Windows 10&quot;&gt;&lt;/a&gt;Build assembly language development environment under Windows 10&lt;/h1&gt;</summary>
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Hello world</title>

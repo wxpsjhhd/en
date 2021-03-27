@@ -43,18 +43,28 @@
     var CONFIG = {"hostname":"en.idefun.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true,"b2t":false,"scrollpercent":true},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="The small broken website of IdeFun, recording life and sharing knowledge">
-<meta property="og:type" content="website">
-<meta property="og:title" content="IdeFun">
-<meta property="og:url" content="http://en.idefun.com/archives/2021/index.html">
+  <meta name="description" content="BurpSuite setup and use1.BurpSuite installation and configurationBurpSuite function introductionBurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite ha">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup and use of BurpSuite">
+<meta property="og:url" content="http://en.idefun.com/article/ec9575bf.html">
 <meta property="og:site_name" content="IdeFun">
-<meta property="og:description" content="The small broken website of IdeFun, recording life and sharing knowledge">
+<meta property="og:description" content="BurpSuite setup and use1.BurpSuite installation and configurationBurpSuite function introductionBurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite ha">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png">
+<meta property="og:image" content="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png">
+<meta property="article:published_time" content="2021-03-27T12:24:09.000Z">
+<meta property="article:modified_time" content="2021-03-27T12:25:46.793Z">
 <meta property="article:author" content="IdeFun">
-<meta property="article:tag" content="IdeFun,Information security,Tutorials,Blog,C,C++,Github,Hack,Linux,Mysql,Shell,Web,Python,Assembly language,Journal,www.idefun.com,idefun.com">
+<meta property="article:tag" content="BurpSuite">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png">
 
-<link rel="canonical" href="http://en.idefun.com/archives/2021/">
+<link rel="canonical" href="http://en.idefun.com/article/ec9575bf.html">
 
 
 <script id="page-configurations">
@@ -62,7 +72,7 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
@@ -77,7 +87,7 @@
     })();
 </script>
 
-  <title>Archive | IdeFun</title>
+  <title>Setup and use of BurpSuite | IdeFun</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EXZ9XVYM4H"></script>
     <script>
@@ -264,156 +274,238 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://en.idefun.com/article/ec9575bf.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://i.loli.net/2021/01/05/Gf1qZ9szBp7tISF.jpg">
+      <meta itemprop="name" content="IdeFun">
+      <meta itemprop="description" content="The small broken website of IdeFun, recording life and sharing knowledge">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="IdeFun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Setup and use of BurpSuite
+        </h1>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-03-27 20:24:09 / Modified: 20:25:46" itemprop="dateCreated datePublished" datetime="2021-03-27T20:24:09+08:00">2021-03-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hack/" itemprop="url" rel="index"><span itemprop="name">hack</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 6 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/article/ec9575bf.html#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/article/ec9575bf.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="Symbols count in article">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">Symbols count in article: </span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="Reading time">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">Reading time &asymp;</span>
+              <span>4 mins.</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
+        <h1 id="BurpSuite-setup-and-use"><a href="#BurpSuite-setup-and-use" class="headerlink" title="BurpSuite setup and use"></a>BurpSuite setup and use</h1><h2 id="1-BurpSuite-installation-and-configuration"><a href="#1-BurpSuite-installation-and-configuration" class="headerlink" title="1.BurpSuite installation and configuration"></a>1.BurpSuite installation and configuration</h2><h3 id="BurpSuite-function-introduction"><a href="#BurpSuite-function-introduction" class="headerlink" title="BurpSuite function introduction"></a>BurpSuite function introduction</h3><p>BurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite has designed many interfaces for these tools to speed up the process of attacking applications. All tools share one request, and can handle corresponding HTTP messages, persistence, authentication, proxy, log, and alert.</p>
+<p>Burpsuite is written by JAVA language, so Burpsuite is a cross-platform software. But unlike other automated testing tools, Buripsuite does not require any input to complete the test during the testing process, but requires manual configuration of certain parameters to trigger the corresponding behavior to complete the test.</p>
+<h2 id="2-BurpSuite-Proxy-Module"><a href="#2-BurpSuite-Proxy-Module" class="headerlink" title="2.BurpSuite Proxy Module"></a>2.BurpSuite Proxy Module</h2><p>Burp Proxy is the core of Burp Suite’s user-driven testing process function. Through the proxy mode, we can intercept, view, and modify all data transmitted between the client and the server.</p>
+<h3 id="1-Intercept"><a href="#1-Intercept" class="headerlink" title="1.Intercept"></a>1.Intercept</h3><p>Forward means sending the truncated HTTP or HTTPS request to the server.<br>Drop means to discard the truncated HTTP or HTTPS request.<br>Intercept is on and Intercept is off indicate that the proxy truncation function is turned on or off.<br>Action means sending the HT TP or HT TPS request truncated by the agent to other modules or doing other processing.<br>Switch the Raw Hex Params Header to Intercept to view different data formats.</p>
+<h3 id="2-HTTP-history"><a href="#2-HTTP-history" class="headerlink" title="2.HTTP history"></a>2.HTTP history</h3><p>HTTP history is used to view submitted HTTP requests.<br>Fiter can filter and display certain HTTP requests. Click Filter to open it. For the specified URL, you can right-click and perform other operations. WebSockets history is similar to HTTP history.</p>
+<h3 id="3-options"><a href="#3-options" class="headerlink" title="3.options"></a>3.options</h3><p>Options have functions: proxy monitoring settings, poke client requests, truncated server responses, truncated WebSocket communications, server-side response modification (bypassing JS verification file upload), matching and replacing the content in the HTTP message, connecting to the Web server through SSL Configuration, other configuration options.</p>
+<h3 id="4-Set-proxy-listener"><a href="#4-Set-proxy-listener" class="headerlink" title="4. Set proxy listener"></a>4. Set proxy listener</h3><p>Cut off data traffic by setting Proxy Listeners. For example, setting the listening port and so on. BurpSuite listens on port 8080 by default.</p>
+<p>Modify the port:</p>
+<ol>
+<li>Turn off truncation</li>
+</ol>
+<p>2.options-&gt;edit</p>
+<ol>
+<li><p>Modify the port, click running</p>
+</li>
+<li><p>Modify the browser port</p>
+</li>
+<li><p>Internet Options -&gt; Connection -&gt; LAN Settings</p>
+</li>
+<li><p>Modify the port</p>
+</li>
+</ol>
+<h3 id="5-Set-intercept-client-requests"><a href="#5-Set-intercept-client-requests" class="headerlink" title="5. Set intercept client requests"></a>5. Set intercept client requests</h3><p>By setting Intercept Client Requests to intercept qualified HTTP requests.</p>
+<h3 id="6-Set-Intercept-Server-Response"><a href="#6-Set-Intercept-Server-Response" class="headerlink" title="6. Set Intercept Server Response"></a>6. Set Intercept Server Response</h3><p>Filter out eligible HTTP responses by setting Intercept Server Response.</p>
+<h3 id="7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><a href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response" class="headerlink" title="7. Set to truncate Websocket communication and modify the content of Response"></a>7. Set to truncate Websocket communication and modify the content of Response</h3><h3 id="8-Match-and-modify-HTTP-messages"><a href="#8-Match-and-modify-HTTP-messages" class="headerlink" title="8. Match and modify HTTP messages"></a>8. Match and modify HTTP messages</h3><p>You can modify the content in the HTTP request and HTTP response.</p>
+<h2 id="3-Burpsuite-captures-mobile-APP-traffic"><a href="#3-Burpsuite-captures-mobile-APP-traffic" class="headerlink" title="3.Burpsuite captures mobile APP traffic"></a>3.Burpsuite captures mobile APP traffic</h2><p>At present, the communication of WebApp (mobile phone App) still uses the HTTP protocol for corresponding communication. You can set the proxy through Burp, and then set the network proxy on the phone, and intercept the mobile APP traffic through Burp.</p>
+<ol>
+<li>Burpsuite is set to cut off the traffic of all network cards, then all the hosts in the office city network can access the network through the proxy.</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png" alt=""></p>
+<ol>
+<li><p>Check the computer ip</p>
+</li>
+<li><p>In the mobile phone network settings, fill in the corresponding agent.</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png" alt=""></p>
+<ol>
+<li>Burpsuite turns on truncation</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png" alt=""></p>
+<h2 id="4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><a href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification" class="headerlink" title="4.Burpsuite removes JS scripts (bypassing JS file upload verification)"></a>4.Burpsuite removes JS scripts (bypassing JS file upload verification)</h2><p>JavaScript—-a literal scripting language. It is a dynamically typed, weakly typed, prototype-based language with built-in support types. Its interpreter is called the JavaScript engine, which is a part of the browser and is widely used as a scripting language on the client side. It was first used on HTML (an application under the Standard Universal Markup Language) web page to add dynamic functions to HTML web pages. . For example: JS verification for uploaded files.</p>
+<p><img src="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png" alt=""></p>
+<p>You can also use the browser audit tool to delete JS directly</p>
+<h2 id="5-Introduction-to-Burpsuite-Target"><a href="#5-Introduction-to-Burpsuite-Target" class="headerlink" title="5. Introduction to Burpsuite Target"></a>5. Introduction to Burpsuite Target</h2><p>The Burp Target component mainly consists of three parts: site map, target domain, and Target tool. They help penetration testers to better understand the overall status of the target application, which target domains the current work involves, and analyze possible attack surfaces.</p>
+<p>The definition of scope in Target Scope is relatively broad. Generally speaking, when we conduct penetration testing on a product, we can restrict the interception of content by domain name or host name. Here, the domain name or host name is the scope we are talking about; if we If you want to limit it more fine-grained, for example, if you only want to intercept all requests in the login directory, we can also set it here. At this time, the scope is the directory.</p>
+
     </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
+   
 
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-27T20:26:51+08:00"
-              content="2021-03-27">
-          03-27
-        </time>
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="IdeFun WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="IdeFun Alipay">
+        <p>Alipay</p>
       </div>
 
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/7ef2d97.html" itemprop="url">
-            <span itemprop="name">Solve the problem that Google Chrome cannot be reinstalled after uninstalling</span>
-          </a>
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>IdeFun
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="http://en.idefun.com/article/ec9575bf.html" title="Setup and use of BurpSuite">http://en.idefun.com/article/ec9575bf.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener external nofollow noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <div>
+        
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------The end of this article<i class="fa fa-paw"></i>Thank you for your reading-------------</div>
+    
+</div>
+        
       </div>
 
-    </header>
-  </article>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/BurpSuite/" rel="tag"><i class="fa fa-tag"></i> BurpSuite</a>
+          </div>
 
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-27T20:24:09+08:00"
-              content="2021-03-27">
-          03-27
-        </time>
-      </div>
-
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/ec9575bf.html" itemprop="url">
-            <span itemprop="name">Setup and use of BurpSuite</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-21T11:27:08+08:00"
-              content="2021-03-21">
-          03-21
-        </time>
-      </div>
-
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/516ed4a7.html" itemprop="url">
-            <span itemprop="name">Teach you how to build your own network disk resource search engine</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-21T11:21:05+08:00"
-              content="2021-03-21">
-          03-21
-        </time>
-      </div>
-
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/ffb90fd4.html" itemprop="url">
-            <span itemprop="name">Solutions to github cannot be opened or slow to load</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-21T11:06:45+08:00"
-              content="2021-03-21">
-          03-21
-        </time>
-      </div>
-
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/52930a0d.html" itemprop="url">
-            <span itemprop="name">Build assembly language development environment under Windows 10</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article class="my-post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="my-post-header">
-
-      <div class="my-post-meta">
-        <time class="my-post-time" itemprop="dateCreated"
-              datetime="2021-03-06T13:42:18+08:00"
-              content="2021-03-06">
-          03-06
-        </time>
-      </div>
-
-      <div class="my-post-title">
-          <a class="my-post-title-link" href="/article/8bd69e52.html" itemprop="url">
-            <span itemprop="name">Hello world</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-
+        
+  <div class="post-widgets">
+    <div class="wp_rating">
+      <div id="wpac-rating"></div>
     </div>
   </div>
-  
-  
-  
 
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/article/516ed4a7.html" rel="prev" title="Teach you how to build your own network disk resource search engine">
+      <i class="fa fa-chevron-left"></i> Teach you how to build your own network disk resource search engine
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/article/7ef2d97.html" rel="next" title="Solve the problem that Google Chrome cannot be reinstalled after uninstalling">
+      Solve the problem that Google Chrome cannot be reinstalled after uninstalling <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -462,6 +554,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BurpSuite-setup-and-use"><span class="nav-text">BurpSuite setup and use</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-BurpSuite-installation-and-configuration"><span class="nav-text">1.BurpSuite installation and configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BurpSuite-function-introduction"><span class="nav-text">BurpSuite function introduction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-BurpSuite-Proxy-Module"><span class="nav-text">2.BurpSuite Proxy Module</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Intercept"><span class="nav-text">1.Intercept</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-HTTP-history"><span class="nav-text">2.HTTP history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-options"><span class="nav-text">3.options</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Set-proxy-listener"><span class="nav-text">4. Set proxy listener</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Set-intercept-client-requests"><span class="nav-text">5. Set intercept client requests</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Set-Intercept-Server-Response"><span class="nav-text">6. Set Intercept Server Response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><span class="nav-text">7. Set to truncate Websocket communication and modify the content of Response</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Match-and-modify-HTTP-messages"><span class="nav-text">8. Match and modify HTTP messages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Burpsuite-captures-mobile-APP-traffic"><span class="nav-text">3.Burpsuite captures mobile APP traffic</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><span class="nav-text">4.Burpsuite removes JS scripts (bypassing JS file upload verification)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Introduction-to-Burpsuite-Target"><span class="nav-text">5. Introduction to Burpsuite Target</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -971,6 +1064,59 @@ show_date_time();
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

@@ -6,7 +6,7 @@
   <link href="http://en.idefun.com/atom.xml" rel="self"/>
   
   <link href="http://en.idefun.com/"/>
-  <updated>2021-03-27T12:40:34.983Z</updated>
+  <updated>2021-03-28T12:10:44.048Z</updated>
   <id>http://en.idefun.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Decompile the source code of WeChat applet</title>
+    <link href="http://en.idefun.com/article/e2ccb572.html"/>
+    <id>http://en.idefun.com/article/e2ccb572.html</id>
+    <published>2021-03-28T12:05:33.000Z</published>
+    <updated>2021-03-28T12:10:44.048Z</updated>
+    
+    
+    <summary type="html">Decompile the source code of WeChat applet</summary>
+    
+    
+    
+    <category term="WeChat applet" scheme="http://en.idefun.com/categories/WeChat-applet/"/>
+    
+    
+    <category term="WeChat applet" scheme="http://en.idefun.com/tags/WeChat-applet/"/>
+    
+  </entry>
   
   <entry>
     <title>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</title>

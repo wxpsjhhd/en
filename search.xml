@@ -386,72 +386,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello world</title>
-    <url>/article/8bd69e52.html</url>
-    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
-  </entry>
-  <entry>
-    <title>Setup and use of BurpSuite</title>
-    <url>/article/ec9575bf.html</url>
-    <content><![CDATA[<h1 id="Setup-and-use-of-BurpSuite"><a href="#Setup-and-use-of-BurpSuite" class="headerlink" title="Setup and use of BurpSuite"></a>Setup and use of BurpSuite</h1><a id="more"></a>
-<h2 id="1-BurpSuite-installation-and-configuration"><a href="#1-BurpSuite-installation-and-configuration" class="headerlink" title="1.BurpSuite installation and configuration"></a>1.BurpSuite installation and configuration</h2><h3 id="BurpSuite-function-introduction"><a href="#BurpSuite-function-introduction" class="headerlink" title="BurpSuite function introduction"></a>BurpSuite function introduction</h3><p>BurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite has designed many interfaces for these tools to speed up the process of attacking applications. All tools share one request, and can handle corresponding HTTP messages, persistence, authentication, proxy, log, and alert.</p>
-<p>Burpsuite is written by JAVA language, so Burpsuite is a cross-platform software. But unlike other automated testing tools, Buripsuite does not require any input to complete the test during the testing process, but requires manual configuration of certain parameters to trigger the corresponding behavior to complete the test.</p>
-<h2 id="2-BurpSuite-Proxy-Module"><a href="#2-BurpSuite-Proxy-Module" class="headerlink" title="2.BurpSuite Proxy Module"></a>2.BurpSuite Proxy Module</h2><p>Burp Proxy is the core of Burp Suite’s user-driven testing process function. Through the proxy mode, we can intercept, view, and modify all data transmitted between the client and the server.</p>
-<h3 id="1-Intercept"><a href="#1-Intercept" class="headerlink" title="1.Intercept"></a>1.Intercept</h3><p>Forward means sending the truncated HTTP or HTTPS request to the server.<br>Drop means to discard the truncated HTTP or HTTPS request.<br>Intercept is on and Intercept is off indicate that the proxy truncation function is turned on or off.<br>Action means sending the HT TP or HT TPS request truncated by the agent to other modules or doing other processing.<br>Switch the Raw Hex Params Header to Intercept to view different data formats.</p>
-<h3 id="2-HTTP-history"><a href="#2-HTTP-history" class="headerlink" title="2.HTTP history"></a>2.HTTP history</h3><p>HTTP history is used to view submitted HTTP requests.<br>Fiter can filter and display certain HTTP requests. Click Filter to open it. For the specified URL, you can right-click and perform other operations. WebSockets history is similar to HTTP history.</p>
-<h3 id="3-options"><a href="#3-options" class="headerlink" title="3.options"></a>3.options</h3><p>Options have functions: proxy monitoring settings, poke client requests, truncated server responses, truncated WebSocket communications, server-side response modification (bypassing JS verification file upload), matching and replacing the content in the HTTP message, connecting to the Web server through SSL Configuration, other configuration options.</p>
-<h3 id="4-Set-proxy-listener"><a href="#4-Set-proxy-listener" class="headerlink" title="4. Set proxy listener"></a>4. Set proxy listener</h3><p>Cut off data traffic by setting Proxy Listeners. For example, setting the listening port and so on. BurpSuite listens on port 8080 by default.</p>
-<p>Modify the port:</p>
-<ol>
-<li>Turn off truncation</li>
-</ol>
-<p>2.options-&gt;edit</p>
-<ol>
-<li><p>Modify the port, click running</p>
-</li>
-<li><p>Modify the browser port</p>
-</li>
-<li><p>Internet Options -&gt; Connection -&gt; LAN Settings</p>
-</li>
-<li><p>Modify the port</p>
-</li>
-</ol>
-<h3 id="5-Set-intercept-client-requests"><a href="#5-Set-intercept-client-requests" class="headerlink" title="5. Set intercept client requests"></a>5. Set intercept client requests</h3><p>By setting Intercept Client Requests to intercept qualified HTTP requests.</p>
-<h3 id="6-Set-Intercept-Server-Response"><a href="#6-Set-Intercept-Server-Response" class="headerlink" title="6. Set Intercept Server Response"></a>6. Set Intercept Server Response</h3><p>Filter out eligible HTTP responses by setting Intercept Server Response.</p>
-<h3 id="7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><a href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response" class="headerlink" title="7. Set to truncate Websocket communication and modify the content of Response"></a>7. Set to truncate Websocket communication and modify the content of Response</h3><h3 id="8-Match-and-modify-HTTP-messages"><a href="#8-Match-and-modify-HTTP-messages" class="headerlink" title="8. Match and modify HTTP messages"></a>8. Match and modify HTTP messages</h3><p>You can modify the content in the HTTP request and HTTP response.</p>
-<h2 id="3-Burpsuite-captures-mobile-APP-traffic"><a href="#3-Burpsuite-captures-mobile-APP-traffic" class="headerlink" title="3.Burpsuite captures mobile APP traffic"></a>3.Burpsuite captures mobile APP traffic</h2><p>At present, the communication of WebApp (mobile phone App) still uses the HTTP protocol for corresponding communication. You can set the proxy through Burp, and then set the network proxy on the phone, and intercept the mobile APP traffic through Burp.</p>
-<ol>
-<li>Burpsuite is set to cut off the traffic of all network cards, then all the hosts in the office city network can access the network through the proxy.</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png" alt=""></p>
-<ol>
-<li><p>Check the computer ip</p>
-</li>
-<li><p>In the mobile phone network settings, fill in the corresponding agent.</p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png" alt=""></p>
-<ol>
-<li>Burpsuite turns on truncation</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png" alt=""></p>
-<h2 id="4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><a href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification" class="headerlink" title="4.Burpsuite removes JS scripts (bypassing JS file upload verification)"></a>4.Burpsuite removes JS scripts (bypassing JS file upload verification)</h2><p>JavaScript—-a literal scripting language. It is a dynamically typed, weakly typed, prototype-based language with built-in support types. Its interpreter is called the JavaScript engine, which is a part of the browser and is widely used as a scripting language on the client side. It was first used on HTML (an application under the Standard Universal Markup Language) web page to add dynamic functions to HTML web pages. . For example: JS verification for uploaded files.</p>
-<p><img src="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png" alt=""></p>
-<p>You can also use the browser audit tool to delete JS directly</p>
-<h2 id="5-Introduction-to-Burpsuite-Target"><a href="#5-Introduction-to-Burpsuite-Target" class="headerlink" title="5. Introduction to Burpsuite Target"></a>5. Introduction to Burpsuite Target</h2><p>The Burp Target component mainly consists of three parts: site map, target domain, and Target tool. They help penetration testers to better understand the overall status of the target application, which target domains the current work involves, and analyze possible attack surfaces.</p>
-<p>The definition of scope in Target Scope is relatively broad. Generally speaking, when we conduct penetration testing on a product, we can restrict the interception of content by domain name or host name. Here, the domain name or host name is the scope we are talking about; if we If you want to limit it more fine-grained, for example, if you only want to intercept all requests in the login directory, we can also set it here. At this time, the scope is the directory.</p>
-]]></content>
-      <categories>
-        <category>hack</category>
-      </categories>
-      <tags>
-        <tag>BurpSuite</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Solutions to github cannot be opened or slow to load</title>
     <url>/article/ffb90fd4.html</url>
     <content><![CDATA[<h1 id="Solutions-to-github-cannot-be-opened-or-slow-to-load"><a href="#Solutions-to-github-cannot-be-opened-or-slow-to-load" class="headerlink" title="Solutions to github cannot be opened or slow to load"></a>Solutions to github cannot be opened or slow to load</h1><a id="more"></a>
@@ -556,22 +490,46 @@
       </tags>
   </entry>
   <entry>
-    <title>Teach you how to build your own network disk resource search engine</title>
-    <url>/article/516ed4a7.html</url>
-    <content><![CDATA[<h1 id="Teach-you-how-to-build-your-own-network-disk-resource-search"><a href="#Teach-you-how-to-build-your-own-network-disk-resource-search" class="headerlink" title="Teach you how to build your own network disk resource search"></a>Teach you how to build your own network disk resource search</h1><a id="more"></a>
-<h2 id="1-Use-Google-to-be-able-to-surf-the-Internet-scientifically"><a href="#1-Use-Google-to-be-able-to-surf-the-Internet-scientifically" class="headerlink" title="1. Use Google (to be able to surf the Internet scientifically)"></a>1. Use Google (to be able to surf the Internet scientifically)</h2><p><a href="https://cse.google.com/cse/" class="LinkCard" target="_blank">Click here to go directly</a></p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/7559cf809c4cf41e9f0c6c79d7db4885.png" alt="image-20201114100907681"></p>
-<h2 id="2-Click-to-start"><a href="#2-Click-to-start" class="headerlink" title="2. Click to start"></a>2. Click to start</h2><p>Enter the following interface</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/1ae2e326d170098cd6399ebb6914aaa8.png" alt="image-20201114100937412"></p>
-<h2 id="3-Click-New-Search-Engine"><a href="#3-Click-New-Search-Engine" class="headerlink" title="3. Click New Search Engine"></a>3. Click New Search Engine</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/56e6799e4eb5d859ce4c14e988318eda.png" alt="image-20201114101047442"></p>
-<h2 id="4-Configure-in-turn"><a href="#4-Configure-in-turn" class="headerlink" title="4. Configure in turn"></a>4. Configure in turn</h2><p>Note that the first one is the website to be searched</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/c2c6d2ec8573ddbe46875698e95678b9.png" alt="image-20201114101417580"></p>
-<h2 id="5-After-creation-click-to-modify-the-search-engine-select-the-one-just-created-and-find-the-search-engine-ID-you-can-also-click-to-get-the-code-and-insert-the-code"><a href="#5-After-creation-click-to-modify-the-search-engine-select-the-one-just-created-and-find-the-search-engine-ID-you-can-also-click-to-get-the-code-and-insert-the-code" class="headerlink" title="5. After creation, click to modify the search engine, select the one just created, and find the search engine ID (you can also click to get the code and insert the code)"></a>5. After creation, click to modify the search engine, select the one just created, and find the search engine ID (you can also click to get the code and insert the code)</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/46d801c5e960346b65910892afbf9cc7.png" alt="image-20201114103410456"></p>
-<p>If you are not satisfied with the appearance, you can modify it yourself, and finally attach the code</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#main</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:750px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">margin</span><span class="selector-pseudo">:20px</span> <span class="selector-tag">auto</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#main</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-size</span><span class="selector-pseudo">:25px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-weight</span><span class="selector-pseudo">:bold</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">margin-button</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">Baidu Netdisk Resource Finder</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> cx =<span class="string">&#x27;Your search engine ID&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> gcse = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    gcse.type =<span class="string">&#x27;text/javascript&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    gcse.async = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">    gcse.src =<span class="string">&#x27;https://cse.google.com/cse.js?cx=&#x27;</span> + cx;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;script&#x27;</span>)[<span class="number">0</span>];</span></span><br><span class="line">    s.parentNode.insertBefore(gcse, s);</span><br><span class="line">  &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gcse:search</span>&gt;</span><span class="tag">&lt;/<span class="name">gcse:search</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    <title>Decompile the source code of WeChat applet</title>
+    <url>/article/e2ccb572.html</url>
+    <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>
+<h2 id="1-Environmental-preparation"><a href="#1-Environmental-preparation" class="headerlink" title="1. Environmental preparation"></a>1. Environmental preparation</h2><ol>
+<li><p>Download node.js, go directly to <a href="https://nodejs.org/en/">official website</a> to download</p>
+</li>
+<li><p>Decompiled script</p>
+<p>Provided directly here, click <a href="https://wws.lanzous.com/iixTIifqaod">link</a> to download, and unzip after downloading</p>
+</li>
+<li><p>Mobile phone simulator</p>
+</li>
+<li><p>RE file manager (not required), I think this is better to operate</p>
+</li>
+</ol>
+<h2 id="2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package"><a href="#2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package" class="headerlink" title="2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)"></a>2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)</h2><h2 id="3-Find-the-WeChat-applet-source-file-package"><a href="#3-Find-the-WeChat-applet-source-file-package" class="headerlink" title="3. Find the WeChat applet source file package"></a>3. Find the WeChat applet source file package</h2><p>In the following directory,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;data&#x2F;data&#x2F;com.tencent.mm&#x2F;MicroMsg&#x2F;&#123;&#123;a 32-bit hexadecimal string folder&#125;&#125;&#x2F;appbrand&#x2F;pkg&#x2F;</span><br></pre></td></tr></table></figure>
+<p>You will find some files of type <code>xxxxxxx.wxapkg</code>, these are the packages of the WeChat applet</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ca55d60ff87240b23dd635a4c55095dd.png" alt="image-20201115212541267"></p>
+<p>Determine the source file package based on time</p>
+<h2 id="4-Transfer-the-source-file-to-the-computer"><a href="#4-Transfer-the-source-file-to-the-computer" class="headerlink" title="4. Transfer the source file to the computer"></a>4. Transfer the source file to the computer</h2><p>It can be shared through the file sharing of the night god simulator, or you can install QQ, compress the source file and transfer it to the computer</p>
+<h2 id="5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd"><a href="#5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd" class="headerlink" title="5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd"></a>5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/870e49a8c940727ccd565c28ec462a74.png" alt="image-20201115214214430"></p>
+<p>Click OK, cd to this storage directory, enter the following command to install dependencies</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install esprima</span><br><span class="line">npm install css<span class="literal">-tree</span></span><br><span class="line">npm install cssbeautify</span><br><span class="line">npm install vm2</span><br><span class="line">npm install uglify<span class="literal">-es</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-Decompile-the-wxapkg-file"><a href="#6-Decompile-the-wxapkg-file" class="headerlink" title="6. Decompile the .wxapkg file"></a>6. Decompile the .wxapkg file</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">node .\wuWxapkg.js D:\_<span class="literal">-472979937_90</span>.wxapkg</span><br><span class="line">D:\_<span class="literal">-472979937_90</span>.wxapkg change to the absolute directory <span class="built_in">where</span> you store the source files</span><br></pre></td></tr></table></figure>
+<p>Just run it, the following figure shows the successful operation</p>
+<p><img src="https://i.loli.net/2020/11/15/aporGMPjm974leN.gif" alt=""></p>
+<h2 id="7-About-errors"><a href="#7-About-errors" class="headerlink" title="7. About errors"></a>7. About errors</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">If Cannot find module&#39;xxx&#39; appears, it means the module is not installed</span><br><span class="line">Run the command npm install&#39;xxx&#39;, install dependencies</span><br><span class="line">If you encounter an error like __vd_version_info__ is not defined</span><br><span class="line">The solution is as follows:</span><br></pre></td></tr></table></figure>
+<p>Modify the code of the decompiled script wuWxss.js and replace the original code</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let vm&#x3D;new VM(&#123;sandbox:Object.assign(new GwxCfg(),&#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;)&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let gg &#x3D; new GwxCfg();</span><br><span class="line">    let tsandbox &#x3D;&#123;$gwx:GwxCfg.prototype[&quot;$gwx&quot;],__mainPageFrameReady__:GwxCfg.prototype[&quot;$gwx&quot;],__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;;</span><br><span class="line">    let vm &#x3D; new VM(&#123;sandbox:tsandbox&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file"><a href="#8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file" class="headerlink" title="8. Generate a folder after decompilation, which is the same directory as the source file"></a>8. Generate a folder after decompilation, which is the same directory as the source file</h2><p>Open the WeChat developer tool and import the applet</p>
+<p><strong>Remarks:</strong><br>Other platform applets can try on their own</p>
+<p><img src="https://img-blog.csdnimg.cn/20201201110158496.jpg#pic_center" alt="Insert picture description here"></p>
 ]]></content>
+      <categories>
+        <category>WeChat applet</category>
+      </categories>
       <tags>
-        <tag>search engine</tag>
+        <tag>WeChat applet</tag>
       </tags>
   </entry>
   <entry>
@@ -619,5 +577,90 @@
       <tags>
         <tag>Google Chrome</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Setup and use of BurpSuite</title>
+    <url>/article/ec9575bf.html</url>
+    <content><![CDATA[<h1 id="Setup-and-use-of-BurpSuite"><a href="#Setup-and-use-of-BurpSuite" class="headerlink" title="Setup and use of BurpSuite"></a>Setup and use of BurpSuite</h1><a id="more"></a>
+<h2 id="1-BurpSuite-installation-and-configuration"><a href="#1-BurpSuite-installation-and-configuration" class="headerlink" title="1.BurpSuite installation and configuration"></a>1.BurpSuite installation and configuration</h2><h3 id="BurpSuite-function-introduction"><a href="#BurpSuite-function-introduction" class="headerlink" title="BurpSuite function introduction"></a>BurpSuite function introduction</h3><p>BurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite has designed many interfaces for these tools to speed up the process of attacking applications. All tools share one request, and can handle corresponding HTTP messages, persistence, authentication, proxy, log, and alert.</p>
+<p>Burpsuite is written by JAVA language, so Burpsuite is a cross-platform software. But unlike other automated testing tools, Buripsuite does not require any input to complete the test during the testing process, but requires manual configuration of certain parameters to trigger the corresponding behavior to complete the test.</p>
+<h2 id="2-BurpSuite-Proxy-Module"><a href="#2-BurpSuite-Proxy-Module" class="headerlink" title="2.BurpSuite Proxy Module"></a>2.BurpSuite Proxy Module</h2><p>Burp Proxy is the core of Burp Suite’s user-driven testing process function. Through the proxy mode, we can intercept, view, and modify all data transmitted between the client and the server.</p>
+<h3 id="1-Intercept"><a href="#1-Intercept" class="headerlink" title="1.Intercept"></a>1.Intercept</h3><p>Forward means sending the truncated HTTP or HTTPS request to the server.<br>Drop means to discard the truncated HTTP or HTTPS request.<br>Intercept is on and Intercept is off indicate that the proxy truncation function is turned on or off.<br>Action means sending the HT TP or HT TPS request truncated by the agent to other modules or doing other processing.<br>Switch the Raw Hex Params Header to Intercept to view different data formats.</p>
+<h3 id="2-HTTP-history"><a href="#2-HTTP-history" class="headerlink" title="2.HTTP history"></a>2.HTTP history</h3><p>HTTP history is used to view submitted HTTP requests.<br>Fiter can filter and display certain HTTP requests. Click Filter to open it. For the specified URL, you can right-click and perform other operations. WebSockets history is similar to HTTP history.</p>
+<h3 id="3-options"><a href="#3-options" class="headerlink" title="3.options"></a>3.options</h3><p>Options have functions: proxy monitoring settings, poke client requests, truncated server responses, truncated WebSocket communications, server-side response modification (bypassing JS verification file upload), matching and replacing the content in the HTTP message, connecting to the Web server through SSL Configuration, other configuration options.</p>
+<h3 id="4-Set-proxy-listener"><a href="#4-Set-proxy-listener" class="headerlink" title="4. Set proxy listener"></a>4. Set proxy listener</h3><p>Cut off data traffic by setting Proxy Listeners. For example, setting the listening port and so on. BurpSuite listens on port 8080 by default.</p>
+<p>Modify the port:</p>
+<ol>
+<li>Turn off truncation</li>
+</ol>
+<p>2.options-&gt;edit</p>
+<ol>
+<li><p>Modify the port, click running</p>
+</li>
+<li><p>Modify the browser port</p>
+</li>
+<li><p>Internet Options -&gt; Connection -&gt; LAN Settings</p>
+</li>
+<li><p>Modify the port</p>
+</li>
+</ol>
+<h3 id="5-Set-intercept-client-requests"><a href="#5-Set-intercept-client-requests" class="headerlink" title="5. Set intercept client requests"></a>5. Set intercept client requests</h3><p>By setting Intercept Client Requests to intercept qualified HTTP requests.</p>
+<h3 id="6-Set-Intercept-Server-Response"><a href="#6-Set-Intercept-Server-Response" class="headerlink" title="6. Set Intercept Server Response"></a>6. Set Intercept Server Response</h3><p>Filter out eligible HTTP responses by setting Intercept Server Response.</p>
+<h3 id="7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><a href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response" class="headerlink" title="7. Set to truncate Websocket communication and modify the content of Response"></a>7. Set to truncate Websocket communication and modify the content of Response</h3><h3 id="8-Match-and-modify-HTTP-messages"><a href="#8-Match-and-modify-HTTP-messages" class="headerlink" title="8. Match and modify HTTP messages"></a>8. Match and modify HTTP messages</h3><p>You can modify the content in the HTTP request and HTTP response.</p>
+<h2 id="3-Burpsuite-captures-mobile-APP-traffic"><a href="#3-Burpsuite-captures-mobile-APP-traffic" class="headerlink" title="3.Burpsuite captures mobile APP traffic"></a>3.Burpsuite captures mobile APP traffic</h2><p>At present, the communication of WebApp (mobile phone App) still uses the HTTP protocol for corresponding communication. You can set the proxy through Burp, and then set the network proxy on the phone, and intercept the mobile APP traffic through Burp.</p>
+<ol>
+<li>Burpsuite is set to cut off the traffic of all network cards, then all the hosts in the office city network can access the network through the proxy.</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png" alt=""></p>
+<ol>
+<li><p>Check the computer ip</p>
+</li>
+<li><p>In the mobile phone network settings, fill in the corresponding agent.</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png" alt=""></p>
+<ol>
+<li>Burpsuite turns on truncation</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png" alt=""></p>
+<h2 id="4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><a href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification" class="headerlink" title="4.Burpsuite removes JS scripts (bypassing JS file upload verification)"></a>4.Burpsuite removes JS scripts (bypassing JS file upload verification)</h2><p>JavaScript—-a literal scripting language. It is a dynamically typed, weakly typed, prototype-based language with built-in support types. Its interpreter is called the JavaScript engine, which is a part of the browser and is widely used as a scripting language on the client side. It was first used on HTML (an application under the Standard Universal Markup Language) web page to add dynamic functions to HTML web pages. . For example: JS verification for uploaded files.</p>
+<p><img src="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png" alt=""></p>
+<p>You can also use the browser audit tool to delete JS directly</p>
+<h2 id="5-Introduction-to-Burpsuite-Target"><a href="#5-Introduction-to-Burpsuite-Target" class="headerlink" title="5. Introduction to Burpsuite Target"></a>5. Introduction to Burpsuite Target</h2><p>The Burp Target component mainly consists of three parts: site map, target domain, and Target tool. They help penetration testers to better understand the overall status of the target application, which target domains the current work involves, and analyze possible attack surfaces.</p>
+<p>The definition of scope in Target Scope is relatively broad. Generally speaking, when we conduct penetration testing on a product, we can restrict the interception of content by domain name or host name. Here, the domain name or host name is the scope we are talking about; if we If you want to limit it more fine-grained, for example, if you only want to intercept all requests in the login directory, we can also set it here. At this time, the scope is the directory.</p>
+]]></content>
+      <categories>
+        <category>hack</category>
+      </categories>
+      <tags>
+        <tag>BurpSuite</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Teach you how to build your own network disk resource search engine</title>
+    <url>/article/516ed4a7.html</url>
+    <content><![CDATA[<h1 id="Teach-you-how-to-build-your-own-network-disk-resource-search"><a href="#Teach-you-how-to-build-your-own-network-disk-resource-search" class="headerlink" title="Teach you how to build your own network disk resource search"></a>Teach you how to build your own network disk resource search</h1><a id="more"></a>
+<h2 id="1-Use-Google-to-be-able-to-surf-the-Internet-scientifically"><a href="#1-Use-Google-to-be-able-to-surf-the-Internet-scientifically" class="headerlink" title="1. Use Google (to be able to surf the Internet scientifically)"></a>1. Use Google (to be able to surf the Internet scientifically)</h2><p><a href="https://cse.google.com/cse/" class="LinkCard" target="_blank">Click here to go directly</a></p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/7559cf809c4cf41e9f0c6c79d7db4885.png" alt="image-20201114100907681"></p>
+<h2 id="2-Click-to-start"><a href="#2-Click-to-start" class="headerlink" title="2. Click to start"></a>2. Click to start</h2><p>Enter the following interface</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/1ae2e326d170098cd6399ebb6914aaa8.png" alt="image-20201114100937412"></p>
+<h2 id="3-Click-New-Search-Engine"><a href="#3-Click-New-Search-Engine" class="headerlink" title="3. Click New Search Engine"></a>3. Click New Search Engine</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/56e6799e4eb5d859ce4c14e988318eda.png" alt="image-20201114101047442"></p>
+<h2 id="4-Configure-in-turn"><a href="#4-Configure-in-turn" class="headerlink" title="4. Configure in turn"></a>4. Configure in turn</h2><p>Note that the first one is the website to be searched</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/c2c6d2ec8573ddbe46875698e95678b9.png" alt="image-20201114101417580"></p>
+<h2 id="5-After-creation-click-to-modify-the-search-engine-select-the-one-just-created-and-find-the-search-engine-ID-you-can-also-click-to-get-the-code-and-insert-the-code"><a href="#5-After-creation-click-to-modify-the-search-engine-select-the-one-just-created-and-find-the-search-engine-ID-you-can-also-click-to-get-the-code-and-insert-the-code" class="headerlink" title="5. After creation, click to modify the search engine, select the one just created, and find the search engine ID (you can also click to get the code and insert the code)"></a>5. After creation, click to modify the search engine, select the one just created, and find the search engine ID (you can also click to get the code and insert the code)</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/46d801c5e960346b65910892afbf9cc7.png" alt="image-20201114103410456"></p>
+<p>If you are not satisfied with the appearance, you can modify it yourself, and finally attach the code</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#main</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">width</span><span class="selector-pseudo">:750px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">margin</span><span class="selector-pseudo">:20px</span> <span class="selector-tag">auto</span>;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"><span class="css">        <span class="selector-id">#main</span> <span class="selector-tag">p</span>&#123;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-size</span><span class="selector-pseudo">:25px</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">font-weight</span><span class="selector-pseudo">:bold</span>;</span></span><br><span class="line"><span class="css">            <span class="selector-tag">margin-button</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line">        &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;main&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">Baidu Netdisk Resource Finder</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">  (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> cx =<span class="string">&#x27;Your search engine ID&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> gcse = <span class="built_in">document</span>.createElement(<span class="string">&#x27;script&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    gcse.type =<span class="string">&#x27;text/javascript&#x27;</span>;</span></span><br><span class="line"><span class="javascript">    gcse.async = <span class="literal">true</span>;</span></span><br><span class="line"><span class="javascript">    gcse.src =<span class="string">&#x27;https://cse.google.com/cse.js?cx=&#x27;</span> + cx;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">&#x27;script&#x27;</span>)[<span class="number">0</span>];</span></span><br><span class="line">    s.parentNode.insertBefore(gcse, s);</span><br><span class="line">  &#125;)();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">gcse:search</span>&gt;</span><span class="tag">&lt;/<span class="name">gcse:search</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>search engine</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/article/8bd69e52.html</url>
+    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
   </entry>
 </search>

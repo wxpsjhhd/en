@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://en.idefun.com/article/e2ccb572.html</loc>
+    
+    <lastmod>2021-03-28</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://en.idefun.com/article/7ef2d97.html</loc>
     
     <lastmod>2021-03-27</lastmod>
@@ -81,7 +88,7 @@
 
   <url>
     <loc>http://en.idefun.com/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -89,35 +96,42 @@
   
   <url>
     <loc>http://en.idefun.com/tags/assembly-language/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://en.idefun.com/tags/BurpSuite/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <loc>http://en.idefun.com/tags/WeChat-applet/</loc>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://en.idefun.com/tags/github/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://en.idefun.com/tags/search-engine/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://en.idefun.com/tags/BurpSuite/</loc>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://en.idefun.com/tags/Google-Chrome/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -126,21 +140,28 @@
   
   <url>
     <loc>http://en.idefun.com/categories/assembly-language/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://en.idefun.com/categories/hack/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <loc>http://en.idefun.com/categories/WeChat-applet/</loc>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>http://en.idefun.com/categories/github/</loc>
-    <lastmod>2021-03-27</lastmod>
+    <lastmod>2021-03-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://en.idefun.com/categories/hack/</loc>
+    <lastmod>2021-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>

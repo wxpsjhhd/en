@@ -6,7 +6,7 @@
   <link href="http://en.idefun.com/atom.xml" rel="self"/>
   
   <link href="http://en.idefun.com/"/>
-  <updated>2021-03-28T12:12:44.736Z</updated>
+  <updated>2021-03-31T06:39:26.990Z</updated>
   <id>http://en.idefun.com/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>git error report and solution inventory</title>
+    <link href="http://en.idefun.com/article/b66c7d01.html"/>
+    <id>http://en.idefun.com/article/b66c7d01.html</id>
+    <published>2021-03-31T06:38:31.000Z</published>
+    <updated>2021-03-31T06:39:26.990Z</updated>
+    
+    
+    <summary type="html">git error report and solution inventory</summary>
+    
+    
+    
+    <category term="git" scheme="http://en.idefun.com/categories/git/"/>
+    
+    
+    <category term="git" scheme="http://en.idefun.com/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>Decompile the source code of WeChat applet</title>

@@ -490,6 +490,47 @@
       </tags>
   </entry>
   <entry>
+    <title>git error report and solution inventory</title>
+    <url>/article/b66c7d01.html</url>
+    <content><![CDATA[<h1 id="git-error-report-and-solution-inventory"><a href="#git-error-report-and-solution-inventory" class="headerlink" title="git error report and solution inventory"></a>git error report and solution inventory</h1><a id="more"></a>
+<h2 id="Error-One"><a href="#Error-One" class="headerlink" title="Error One"></a>Error One</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: Failed to connect to github. com port 443: Timed out</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One"></a>Solution One</h3><ol>
+<li>Check your git configuration</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>If you don’t have any content related to https proxy, such as https_proxy=…, the problem is not here. If you have content related to https proxy, please delete it from the ~/.gitconfig file and try again</p>
+<ol>
+<li>If it still doesn’t work, please unset the environment variable</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>You should have one or a few lines https_proxy = … use the following to unset them one by one: unset https_proxy (or HTTPS_PROXY, depending on the name of the variable)</p>
+<ol>
+<li>Check the environment variables again</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>If it doesn’t show anything you should be good. Note: This solution can be applied to http and https proxy issues. Just change the variable name from https to http</p>
+<h3 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h3><ol>
+<li>Manually configure the git proxy. The git client can enter the following two commands</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Cancel proxy</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<h2 id="Error-two"><a href="#Error-two" class="headerlink" title="Error two"></a>Error two</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: failed to receive handshake ssl&#x2F;tls connection failed</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslBackend &quot;openssl&quot;</span><br><span class="line">git config --global http.sslCAInfo [path to .pem file]</span><br></pre></td></tr></table></figure>
+<h2 id="Error-three"><a href="#Error-three" class="headerlink" title="Error three"></a>Error three</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>Encountering these problems is likely to be due to scientific Internet access, you can close it and try it. If you encounter these problems temporarily, you will make up for them later.</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Decompile the source code of WeChat applet</title>
     <url>/article/e2ccb572.html</url>
     <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>

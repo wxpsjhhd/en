@@ -794,14 +794,12 @@ show_date_time();
 </div>
 
 
-<script src="https://files.mebyz.cn/ad/adview_pic_cpc_cpm_cpa_guanggao_gg_ads_300x250.js" type="text/javascript">
-</script>
-<script type="text/javascript">
-window.onload =setTimeout(function(){ 
-      var hhh=document.getElementById("ads").offsetHeight;  
-if (typeof(killads)=='undefined' || hhh==0){document.getElementById('jiance').innerHTML = '<div class="shengjs" style="color: red;border: 1px solid;font-size: 15px;">呀，请不要屏蔽广告!(可能误判)</div>';
-}},3000);
-</script>
+$(function(){
+  setTimeout(function(){
+		if ($('.google-ad').height() == 0)
+			showOtherImage();
+  },3000);
+});
 
 
 

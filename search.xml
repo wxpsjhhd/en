@@ -386,6 +386,115 @@
       </tags>
   </entry>
   <entry>
+    <title>Decompile the source code of WeChat applet</title>
+    <url>/article/e2ccb572.html</url>
+    <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>
+<h2 id="1-Environmental-preparation"><a href="#1-Environmental-preparation" class="headerlink" title="1. Environmental preparation"></a>1. Environmental preparation</h2><ol>
+<li><p>Download node.js, go directly to <a href="https://nodejs.org/en/">official website</a> to download</p>
+</li>
+<li><p>Decompiled script</p>
+<p>Provided directly here, click <a href="https://wws.lanzous.com/iixTIifqaod">link</a> to download, and unzip after downloading</p>
+</li>
+<li><p>Mobile phone simulator</p>
+</li>
+<li><p>RE file manager (not required), I think this is better to operate</p>
+</li>
+</ol>
+<h2 id="2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package"><a href="#2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package" class="headerlink" title="2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)"></a>2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)</h2><h2 id="3-Find-the-WeChat-applet-source-file-package"><a href="#3-Find-the-WeChat-applet-source-file-package" class="headerlink" title="3. Find the WeChat applet source file package"></a>3. Find the WeChat applet source file package</h2><p>In the following directory,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;data&#x2F;data&#x2F;com.tencent.mm&#x2F;MicroMsg&#x2F;&#123;&#123;a 32-bit hexadecimal string folder&#125;&#125;&#x2F;appbrand&#x2F;pkg&#x2F;</span><br></pre></td></tr></table></figure>
+<p>You will find some files of type <code>xxxxxxx.wxapkg</code>, these are the packages of the WeChat applet</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ca55d60ff87240b23dd635a4c55095dd.png" alt=""></p>
+<p>Determine the source file package based on time</p>
+<h2 id="4-Transfer-the-source-file-to-the-computer"><a href="#4-Transfer-the-source-file-to-the-computer" class="headerlink" title="4. Transfer the source file to the computer"></a>4. Transfer the source file to the computer</h2><p>It can be shared through the file sharing of the night god simulator, or you can install QQ, compress the source file and transfer it to the computer</p>
+<h2 id="5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd"><a href="#5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd" class="headerlink" title="5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd"></a>5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/870e49a8c940727ccd565c28ec462a74.png" alt=""></p>
+<p>Click OK, cd to this storage directory, enter the following command to install dependencies</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install esprima</span><br><span class="line">npm install css<span class="literal">-tree</span></span><br><span class="line">npm install cssbeautify</span><br><span class="line">npm install vm2</span><br><span class="line">npm install uglify<span class="literal">-es</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-Decompile-the-wxapkg-file"><a href="#6-Decompile-the-wxapkg-file" class="headerlink" title="6. Decompile the .wxapkg file"></a>6. Decompile the .wxapkg file</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">node .\wuWxapkg.js D:\_<span class="literal">-472979937_90</span>.wxapkg</span><br><span class="line">D:\_<span class="literal">-472979937_90</span>.wxapkg change to the absolute directory <span class="built_in">where</span> you store the source files</span><br></pre></td></tr></table></figure>
+<p>Just run it, the following figure shows the successful operation</p>
+<p><img src="https://i.loli.net/2020/11/15/aporGMPjm974leN.gif" alt=""></p>
+<h2 id="7-About-errors"><a href="#7-About-errors" class="headerlink" title="7. About errors"></a>7. About errors</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">If Cannot find module&#39;xxx&#39; appears, it means the module is not installed</span><br><span class="line">Run the command npm install&#39;xxx&#39;, install dependencies</span><br><span class="line">If you encounter an error like __vd_version_info__ is not defined</span><br><span class="line">The solution is as follows:</span><br></pre></td></tr></table></figure>
+<p>Modify the code of the decompiled script wuWxss.js and replace the original code</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let vm&#x3D;new VM(&#123;sandbox:Object.assign(new GwxCfg(),&#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;)&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let gg &#x3D; new GwxCfg();</span><br><span class="line">    let tsandbox &#x3D;&#123;$gwx:GwxCfg.prototype[&quot;$gwx&quot;],__mainPageFrameReady__:GwxCfg.prototype[&quot;$gwx&quot;],__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;;</span><br><span class="line">    let vm &#x3D; new VM(&#123;sandbox:tsandbox&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file"><a href="#8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file" class="headerlink" title="8. Generate a folder after decompilation, which is the same directory as the source file"></a>8. Generate a folder after decompilation, which is the same directory as the source file</h2><p>Open the WeChat developer tool and import the applet</p>
+<p><strong>Remarks:</strong><br>Other platform applets can try on their own</p>
+<p><img src="https://img-blog.csdnimg.cn/20201201110158496.jpg#pic_center" alt=""></p>
+]]></content>
+      <categories>
+        <category>WeChat applet</category>
+      </categories>
+      <tags>
+        <tag>WeChat applet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello world</title>
+    <url>/article/8bd69e52.html</url>
+    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
+  </entry>
+  <entry>
+    <title>Setup and use of BurpSuite</title>
+    <url>/article/ec9575bf.html</url>
+    <content><![CDATA[<h1 id="Setup-and-use-of-BurpSuite"><a href="#Setup-and-use-of-BurpSuite" class="headerlink" title="Setup and use of BurpSuite"></a>Setup and use of BurpSuite</h1><a id="more"></a>
+<h2 id="1-BurpSuite-installation-and-configuration"><a href="#1-BurpSuite-installation-and-configuration" class="headerlink" title="1.BurpSuite installation and configuration"></a>1.BurpSuite installation and configuration</h2><h3 id="BurpSuite-function-introduction"><a href="#BurpSuite-function-introduction" class="headerlink" title="BurpSuite function introduction"></a>BurpSuite function introduction</h3><p>BurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite has designed many interfaces for these tools to speed up the process of attacking applications. All tools share one request, and can handle corresponding HTTP messages, persistence, authentication, proxy, log, and alert.</p>
+<p>Burpsuite is written by JAVA language, so Burpsuite is a cross-platform software. But unlike other automated testing tools, Buripsuite does not require any input to complete the test during the testing process, but requires manual configuration of certain parameters to trigger the corresponding behavior to complete the test.</p>
+<h2 id="2-BurpSuite-Proxy-Module"><a href="#2-BurpSuite-Proxy-Module" class="headerlink" title="2.BurpSuite Proxy Module"></a>2.BurpSuite Proxy Module</h2><p>Burp Proxy is the core of Burp Suite’s user-driven testing process function. Through the proxy mode, we can intercept, view, and modify all data transmitted between the client and the server.</p>
+<h3 id="1-Intercept"><a href="#1-Intercept" class="headerlink" title="1.Intercept"></a>1.Intercept</h3><p>Forward means sending the truncated HTTP or HTTPS request to the server.<br>Drop means to discard the truncated HTTP or HTTPS request.<br>Intercept is on and Intercept is off indicate that the proxy truncation function is turned on or off.<br>Action means sending the HT TP or HT TPS request truncated by the agent to other modules or doing other processing.<br>Switch the Raw Hex Params Header to Intercept to view different data formats.</p>
+<h3 id="2-HTTP-history"><a href="#2-HTTP-history" class="headerlink" title="2.HTTP history"></a>2.HTTP history</h3><p>HTTP history is used to view submitted HTTP requests.<br>Fiter can filter and display certain HTTP requests. Click Filter to open it. For the specified URL, you can right-click and perform other operations. WebSockets history is similar to HTTP history.</p>
+<h3 id="3-options"><a href="#3-options" class="headerlink" title="3.options"></a>3.options</h3><p>Options have functions: proxy monitoring settings, poke client requests, truncated server responses, truncated WebSocket communications, server-side response modification (bypassing JS verification file upload), matching and replacing the content in the HTTP message, connecting to the Web server through SSL Configuration, other configuration options.</p>
+<h3 id="4-Set-proxy-listener"><a href="#4-Set-proxy-listener" class="headerlink" title="4. Set proxy listener"></a>4. Set proxy listener</h3><p>Cut off data traffic by setting Proxy Listeners. For example, setting the listening port and so on. BurpSuite listens on port 8080 by default.</p>
+<p>Modify the port:</p>
+<ol>
+<li>Turn off truncation</li>
+</ol>
+<p>2.options-&gt;edit</p>
+<ol>
+<li><p>Modify the port, click running</p>
+</li>
+<li><p>Modify the browser port</p>
+</li>
+<li><p>Internet Options -&gt; Connection -&gt; LAN Settings</p>
+</li>
+<li><p>Modify the port</p>
+</li>
+</ol>
+<h3 id="5-Set-intercept-client-requests"><a href="#5-Set-intercept-client-requests" class="headerlink" title="5. Set intercept client requests"></a>5. Set intercept client requests</h3><p>By setting Intercept Client Requests to intercept qualified HTTP requests.</p>
+<h3 id="6-Set-Intercept-Server-Response"><a href="#6-Set-Intercept-Server-Response" class="headerlink" title="6. Set Intercept Server Response"></a>6. Set Intercept Server Response</h3><p>Filter out eligible HTTP responses by setting Intercept Server Response.</p>
+<h3 id="7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><a href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response" class="headerlink" title="7. Set to truncate Websocket communication and modify the content of Response"></a>7. Set to truncate Websocket communication and modify the content of Response</h3><h3 id="8-Match-and-modify-HTTP-messages"><a href="#8-Match-and-modify-HTTP-messages" class="headerlink" title="8. Match and modify HTTP messages"></a>8. Match and modify HTTP messages</h3><p>You can modify the content in the HTTP request and HTTP response.</p>
+<h2 id="3-Burpsuite-captures-mobile-APP-traffic"><a href="#3-Burpsuite-captures-mobile-APP-traffic" class="headerlink" title="3.Burpsuite captures mobile APP traffic"></a>3.Burpsuite captures mobile APP traffic</h2><p>At present, the communication of WebApp (mobile phone App) still uses the HTTP protocol for corresponding communication. You can set the proxy through Burp, and then set the network proxy on the phone, and intercept the mobile APP traffic through Burp.</p>
+<ol>
+<li>Burpsuite is set to cut off the traffic of all network cards, then all the hosts in the office city network can access the network through the proxy.</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png" alt=""></p>
+<ol>
+<li><p>Check the computer ip</p>
+</li>
+<li><p>In the mobile phone network settings, fill in the corresponding agent.</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png" alt=""></p>
+<p><img src="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png" alt=""></p>
+<ol>
+<li>Burpsuite turns on truncation</li>
+</ol>
+<p><img src="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png" alt=""></p>
+<h2 id="4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><a href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification" class="headerlink" title="4.Burpsuite removes JS scripts (bypassing JS file upload verification)"></a>4.Burpsuite removes JS scripts (bypassing JS file upload verification)</h2><p>JavaScript—-a literal scripting language. It is a dynamically typed, weakly typed, prototype-based language with built-in support types. Its interpreter is called the JavaScript engine, which is a part of the browser and is widely used as a scripting language on the client side. It was first used on HTML (an application under the Standard Universal Markup Language) web page to add dynamic functions to HTML web pages. . For example: JS verification for uploaded files.</p>
+<p><img src="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png" alt=""></p>
+<p>You can also use the browser audit tool to delete JS directly</p>
+<h2 id="5-Introduction-to-Burpsuite-Target"><a href="#5-Introduction-to-Burpsuite-Target" class="headerlink" title="5. Introduction to Burpsuite Target"></a>5. Introduction to Burpsuite Target</h2><p>The Burp Target component mainly consists of three parts: site map, target domain, and Target tool. They help penetration testers to better understand the overall status of the target application, which target domains the current work involves, and analyze possible attack surfaces.</p>
+<p>The definition of scope in Target Scope is relatively broad. Generally speaking, when we conduct penetration testing on a product, we can restrict the interception of content by domain name or host name. Here, the domain name or host name is the scope we are talking about; if we If you want to limit it more fine-grained, for example, if you only want to intercept all requests in the login directory, we can also set it here. At this time, the scope is the directory.</p>
+]]></content>
+      <categories>
+        <category>hack</category>
+      </categories>
+      <tags>
+        <tag>BurpSuite</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Solutions to github cannot be opened or slow to load</title>
     <url>/article/ffb90fd4.html</url>
     <content><![CDATA[<h1 id="Solutions-to-github-cannot-be-opened-or-slow-to-load"><a href="#Solutions-to-github-cannot-be-opened-or-slow-to-load" class="headerlink" title="Solutions to github cannot be opened or slow to load"></a>Solutions to github cannot be opened or slow to load</h1><a id="more"></a>
@@ -490,90 +599,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git error report and solution inventory</title>
-    <url>/article/b66c7d01.html</url>
-    <content><![CDATA[<h1 id="git-error-report-and-solution-inventory"><a href="#git-error-report-and-solution-inventory" class="headerlink" title="git error report and solution inventory"></a>git error report and solution inventory</h1><a id="more"></a>
-<h2 id="Error-One"><a href="#Error-One" class="headerlink" title="Error One"></a>Error One</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: Failed to connect to github. com port 443: Timed out</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One"></a>Solution One</h3><ol>
-<li>Check your git configuration</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
-<p>If you don’t have any content related to https proxy, such as https_proxy=…, the problem is not here. If you have content related to https proxy, please delete it from the ~/.gitconfig file and try again</p>
-<ol>
-<li>If it still doesn’t work, please unset the environment variable</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
-<p>You should have one or a few lines https_proxy = … use the following to unset them one by one: unset https_proxy (or HTTPS_PROXY, depending on the name of the variable)</p>
-<ol>
-<li>Check the environment variables again</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
-<p>If it doesn’t show anything you should be good. Note: This solution can be applied to http and https proxy issues. Just change the variable name from https to http</p>
-<h3 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h3><ol>
-<li>Manually configure the git proxy. The git client can enter the following two commands</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Cancel proxy</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-<h2 id="Error-two"><a href="#Error-two" class="headerlink" title="Error two"></a>Error two</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: failed to receive handshake ssl&#x2F;tls connection failed</span><br></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslBackend &quot;openssl&quot;</span><br><span class="line">git config --global http.sslCAInfo [path to .pem file]</span><br></pre></td></tr></table></figure>
-<h2 id="Error-three"><a href="#Error-three" class="headerlink" title="Error three"></a>Error three</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>Encountering these problems is likely to be due to scientific Internet access, you can close it and try it. If you encounter these problems temporarily, you will make up for them later.</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Decompile the source code of WeChat applet</title>
-    <url>/article/e2ccb572.html</url>
-    <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>
-<h2 id="1-Environmental-preparation"><a href="#1-Environmental-preparation" class="headerlink" title="1. Environmental preparation"></a>1. Environmental preparation</h2><ol>
-<li><p>Download node.js, go directly to <a href="https://nodejs.org/en/">official website</a> to download</p>
-</li>
-<li><p>Decompiled script</p>
-<p>Provided directly here, click <a href="https://wws.lanzous.com/iixTIifqaod">link</a> to download, and unzip after downloading</p>
-</li>
-<li><p>Mobile phone simulator</p>
-</li>
-<li><p>RE file manager (not required), I think this is better to operate</p>
-</li>
-</ol>
-<h2 id="2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package"><a href="#2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package" class="headerlink" title="2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)"></a>2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)</h2><h2 id="3-Find-the-WeChat-applet-source-file-package"><a href="#3-Find-the-WeChat-applet-source-file-package" class="headerlink" title="3. Find the WeChat applet source file package"></a>3. Find the WeChat applet source file package</h2><p>In the following directory,</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;data&#x2F;data&#x2F;com.tencent.mm&#x2F;MicroMsg&#x2F;&#123;&#123;a 32-bit hexadecimal string folder&#125;&#125;&#x2F;appbrand&#x2F;pkg&#x2F;</span><br></pre></td></tr></table></figure>
-<p>You will find some files of type <code>xxxxxxx.wxapkg</code>, these are the packages of the WeChat applet</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/ca55d60ff87240b23dd635a4c55095dd.png" alt=""></p>
-<p>Determine the source file package based on time</p>
-<h2 id="4-Transfer-the-source-file-to-the-computer"><a href="#4-Transfer-the-source-file-to-the-computer" class="headerlink" title="4. Transfer the source file to the computer"></a>4. Transfer the source file to the computer</h2><p>It can be shared through the file sharing of the night god simulator, or you can install QQ, compress the source file and transfer it to the computer</p>
-<h2 id="5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd"><a href="#5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd" class="headerlink" title="5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd"></a>5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/870e49a8c940727ccd565c28ec462a74.png" alt=""></p>
-<p>Click OK, cd to this storage directory, enter the following command to install dependencies</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install esprima</span><br><span class="line">npm install css<span class="literal">-tree</span></span><br><span class="line">npm install cssbeautify</span><br><span class="line">npm install vm2</span><br><span class="line">npm install uglify<span class="literal">-es</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-Decompile-the-wxapkg-file"><a href="#6-Decompile-the-wxapkg-file" class="headerlink" title="6. Decompile the .wxapkg file"></a>6. Decompile the .wxapkg file</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">node .\wuWxapkg.js D:\_<span class="literal">-472979937_90</span>.wxapkg</span><br><span class="line">D:\_<span class="literal">-472979937_90</span>.wxapkg change to the absolute directory <span class="built_in">where</span> you store the source files</span><br></pre></td></tr></table></figure>
-<p>Just run it, the following figure shows the successful operation</p>
-<p><img src="https://i.loli.net/2020/11/15/aporGMPjm974leN.gif" alt=""></p>
-<h2 id="7-About-errors"><a href="#7-About-errors" class="headerlink" title="7. About errors"></a>7. About errors</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">If Cannot find module&#39;xxx&#39; appears, it means the module is not installed</span><br><span class="line">Run the command npm install&#39;xxx&#39;, install dependencies</span><br><span class="line">If you encounter an error like __vd_version_info__ is not defined</span><br><span class="line">The solution is as follows:</span><br></pre></td></tr></table></figure>
-<p>Modify the code of the decompiled script wuWxss.js and replace the original code</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let vm&#x3D;new VM(&#123;sandbox:Object.assign(new GwxCfg(),&#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;)&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>To</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let gg &#x3D; new GwxCfg();</span><br><span class="line">    let tsandbox &#x3D;&#123;$gwx:GwxCfg.prototype[&quot;$gwx&quot;],__mainPageFrameReady__:GwxCfg.prototype[&quot;$gwx&quot;],__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;;</span><br><span class="line">    let vm &#x3D; new VM(&#123;sandbox:tsandbox&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file"><a href="#8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file" class="headerlink" title="8. Generate a folder after decompilation, which is the same directory as the source file"></a>8. Generate a folder after decompilation, which is the same directory as the source file</h2><p>Open the WeChat developer tool and import the applet</p>
-<p><strong>Remarks:</strong><br>Other platform applets can try on their own</p>
-<p><img src="https://img-blog.csdnimg.cn/20201201110158496.jpg#pic_center" alt=""></p>
-]]></content>
-      <categories>
-        <category>WeChat applet</category>
-      </categories>
-      <tags>
-        <tag>WeChat applet</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</title>
     <url>/article/7ef2d97.html</url>
     <content><![CDATA[<h1 id="Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling"><a href="#Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling" class="headerlink" title="Solve the problem that Google Chrome cannot be reinstalled after uninstalling"></a>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</h1><a id="more"></a>
@@ -620,67 +645,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Setup and use of BurpSuite</title>
-    <url>/article/ec9575bf.html</url>
-    <content><![CDATA[<h1 id="Setup-and-use-of-BurpSuite"><a href="#Setup-and-use-of-BurpSuite" class="headerlink" title="Setup and use of BurpSuite"></a>Setup and use of BurpSuite</h1><a id="more"></a>
-<h2 id="1-BurpSuite-installation-and-configuration"><a href="#1-BurpSuite-installation-and-configuration" class="headerlink" title="1.BurpSuite installation and configuration"></a>1.BurpSuite installation and configuration</h2><h3 id="BurpSuite-function-introduction"><a href="#BurpSuite-function-introduction" class="headerlink" title="BurpSuite function introduction"></a>BurpSuite function introduction</h3><p>BurpSuite is an integrated platform for attacking web applications and contains many tools. BurpSuite has designed many interfaces for these tools to speed up the process of attacking applications. All tools share one request, and can handle corresponding HTTP messages, persistence, authentication, proxy, log, and alert.</p>
-<p>Burpsuite is written by JAVA language, so Burpsuite is a cross-platform software. But unlike other automated testing tools, Buripsuite does not require any input to complete the test during the testing process, but requires manual configuration of certain parameters to trigger the corresponding behavior to complete the test.</p>
-<h2 id="2-BurpSuite-Proxy-Module"><a href="#2-BurpSuite-Proxy-Module" class="headerlink" title="2.BurpSuite Proxy Module"></a>2.BurpSuite Proxy Module</h2><p>Burp Proxy is the core of Burp Suite’s user-driven testing process function. Through the proxy mode, we can intercept, view, and modify all data transmitted between the client and the server.</p>
-<h3 id="1-Intercept"><a href="#1-Intercept" class="headerlink" title="1.Intercept"></a>1.Intercept</h3><p>Forward means sending the truncated HTTP or HTTPS request to the server.<br>Drop means to discard the truncated HTTP or HTTPS request.<br>Intercept is on and Intercept is off indicate that the proxy truncation function is turned on or off.<br>Action means sending the HT TP or HT TPS request truncated by the agent to other modules or doing other processing.<br>Switch the Raw Hex Params Header to Intercept to view different data formats.</p>
-<h3 id="2-HTTP-history"><a href="#2-HTTP-history" class="headerlink" title="2.HTTP history"></a>2.HTTP history</h3><p>HTTP history is used to view submitted HTTP requests.<br>Fiter can filter and display certain HTTP requests. Click Filter to open it. For the specified URL, you can right-click and perform other operations. WebSockets history is similar to HTTP history.</p>
-<h3 id="3-options"><a href="#3-options" class="headerlink" title="3.options"></a>3.options</h3><p>Options have functions: proxy monitoring settings, poke client requests, truncated server responses, truncated WebSocket communications, server-side response modification (bypassing JS verification file upload), matching and replacing the content in the HTTP message, connecting to the Web server through SSL Configuration, other configuration options.</p>
-<h3 id="4-Set-proxy-listener"><a href="#4-Set-proxy-listener" class="headerlink" title="4. Set proxy listener"></a>4. Set proxy listener</h3><p>Cut off data traffic by setting Proxy Listeners. For example, setting the listening port and so on. BurpSuite listens on port 8080 by default.</p>
-<p>Modify the port:</p>
-<ol>
-<li>Turn off truncation</li>
-</ol>
-<p>2.options-&gt;edit</p>
-<ol>
-<li><p>Modify the port, click running</p>
-</li>
-<li><p>Modify the browser port</p>
-</li>
-<li><p>Internet Options -&gt; Connection -&gt; LAN Settings</p>
-</li>
-<li><p>Modify the port</p>
-</li>
-</ol>
-<h3 id="5-Set-intercept-client-requests"><a href="#5-Set-intercept-client-requests" class="headerlink" title="5. Set intercept client requests"></a>5. Set intercept client requests</h3><p>By setting Intercept Client Requests to intercept qualified HTTP requests.</p>
-<h3 id="6-Set-Intercept-Server-Response"><a href="#6-Set-Intercept-Server-Response" class="headerlink" title="6. Set Intercept Server Response"></a>6. Set Intercept Server Response</h3><p>Filter out eligible HTTP responses by setting Intercept Server Response.</p>
-<h3 id="7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response"><a href="#7-Set-to-truncate-Websocket-communication-and-modify-the-content-of-Response" class="headerlink" title="7. Set to truncate Websocket communication and modify the content of Response"></a>7. Set to truncate Websocket communication and modify the content of Response</h3><h3 id="8-Match-and-modify-HTTP-messages"><a href="#8-Match-and-modify-HTTP-messages" class="headerlink" title="8. Match and modify HTTP messages"></a>8. Match and modify HTTP messages</h3><p>You can modify the content in the HTTP request and HTTP response.</p>
-<h2 id="3-Burpsuite-captures-mobile-APP-traffic"><a href="#3-Burpsuite-captures-mobile-APP-traffic" class="headerlink" title="3.Burpsuite captures mobile APP traffic"></a>3.Burpsuite captures mobile APP traffic</h2><p>At present, the communication of WebApp (mobile phone App) still uses the HTTP protocol for corresponding communication. You can set the proxy through Burp, and then set the network proxy on the phone, and intercept the mobile APP traffic through Burp.</p>
-<ol>
-<li>Burpsuite is set to cut off the traffic of all network cards, then all the hosts in the office city network can access the network through the proxy.</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/n1owBAfCMJXqvhW.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/Cu6NGxn2SI57hBs.png" alt=""></p>
-<ol>
-<li><p>Check the computer ip</p>
-</li>
-<li><p>In the mobile phone network settings, fill in the corresponding agent.</p>
-</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/gcYyFBzhjZEKOev.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/US7BIW1oNuXlHhJ.png" alt=""></p>
-<p><img src="https://i.loli.net/2021/01/24/o8hED3xYzjUlvC9.png" alt=""></p>
-<ol>
-<li>Burpsuite turns on truncation</li>
-</ol>
-<p><img src="https://i.loli.net/2021/01/24/nU8QWAlJGESgP96.png" alt=""></p>
-<h2 id="4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification"><a href="#4-Burpsuite-removes-JS-scripts-bypassing-JS-file-upload-verification" class="headerlink" title="4.Burpsuite removes JS scripts (bypassing JS file upload verification)"></a>4.Burpsuite removes JS scripts (bypassing JS file upload verification)</h2><p>JavaScript—-a literal scripting language. It is a dynamically typed, weakly typed, prototype-based language with built-in support types. Its interpreter is called the JavaScript engine, which is a part of the browser and is widely used as a scripting language on the client side. It was first used on HTML (an application under the Standard Universal Markup Language) web page to add dynamic functions to HTML web pages. . For example: JS verification for uploaded files.</p>
-<p><img src="https://i.loli.net/2021/01/25/P1A6G4zFDUpbRs3.png" alt=""></p>
-<p>You can also use the browser audit tool to delete JS directly</p>
-<h2 id="5-Introduction-to-Burpsuite-Target"><a href="#5-Introduction-to-Burpsuite-Target" class="headerlink" title="5. Introduction to Burpsuite Target"></a>5. Introduction to Burpsuite Target</h2><p>The Burp Target component mainly consists of three parts: site map, target domain, and Target tool. They help penetration testers to better understand the overall status of the target application, which target domains the current work involves, and analyze possible attack surfaces.</p>
-<p>The definition of scope in Target Scope is relatively broad. Generally speaking, when we conduct penetration testing on a product, we can restrict the interception of content by domain name or host name. Here, the domain name or host name is the scope we are talking about; if we If you want to limit it more fine-grained, for example, if you only want to intercept all requests in the login directory, we can also set it here. At this time, the scope is the directory.</p>
-]]></content>
-      <categories>
-        <category>hack</category>
-      </categories>
-      <tags>
-        <tag>BurpSuite</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Teach you how to build your own network disk resource search engine</title>
     <url>/article/516ed4a7.html</url>
     <content><![CDATA[<h1 id="Teach-you-how-to-build-your-own-network-disk-resource-search"><a href="#Teach-you-how-to-build-your-own-network-disk-resource-search" class="headerlink" title="Teach you how to build your own network disk resource search"></a>Teach you how to build your own network disk resource search</h1><a id="more"></a>
@@ -700,8 +664,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello world</title>
-    <url>/article/8bd69e52.html</url>
-    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
+    <title>git error report and solution inventory</title>
+    <url>/article/b66c7d01.html</url>
+    <content><![CDATA[<h1 id="git-error-report-and-solution-inventory"><a href="#git-error-report-and-solution-inventory" class="headerlink" title="git error report and solution inventory"></a>git error report and solution inventory</h1><a id="more"></a>
+<h2 id="Error-One"><a href="#Error-One" class="headerlink" title="Error One"></a>Error One</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: Failed to connect to github. com port 443: Timed out</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One"></a>Solution One</h3><ol>
+<li>Check your git configuration</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>If you don’t have any content related to https proxy, such as https_proxy=…, the problem is not here. If you have content related to https proxy, please delete it from the ~/.gitconfig file and try again</p>
+<ol>
+<li>If it still doesn’t work, please unset the environment variable</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>You should have one or a few lines https_proxy = … use the following to unset them one by one: unset https_proxy (or HTTPS_PROXY, depending on the name of the variable)</p>
+<ol>
+<li>Check the environment variables again</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>If it doesn’t show anything you should be good. Note: This solution can be applied to http and https proxy issues. Just change the variable name from https to http</p>
+<h3 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h3><ol>
+<li>Manually configure the git proxy. The git client can enter the following two commands</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Cancel proxy</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<h2 id="Error-two"><a href="#Error-two" class="headerlink" title="Error two"></a>Error two</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: failed to receive handshake ssl&#x2F;tls connection failed</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslBackend &quot;openssl&quot;</span><br><span class="line">git config --global http.sslCAInfo [path to .pem file]</span><br></pre></td></tr></table></figure>
+<h2 id="Error-three"><a href="#Error-three" class="headerlink" title="Error three"></a>Error three</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>Encountering these problems is likely to be due to scientific Internet access, you can close it and try it. If you encounter these problems temporarily, you will make up for them later.</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
 </search>

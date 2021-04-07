@@ -655,7 +655,7 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 
 
-
+      <!--右侧轮播图 -->
       <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
       <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
       <div class="swiper-container" style="width: 300px;border-radius: 15px">
@@ -706,10 +706,21 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 
 
 
-      
-          <div style="width:300px;heigh:200px;color:#76ebec;">
-          
-          <script>
+          <!--英文美句-->
+          <div style="width:300px;height:200px;color:#222222;background:white;border-radius:15px;margin-top:10px">
+            <div style="line-height: 20px;text-align: center;border-bottom:1px solid #96C2F1">
+              <strong>Notice</strong>
+            </div>
+          </div>       
+
+    
+    </div>
+</div>
+
+
+<div style="line-height: 20px;text-align: center;width:100%;background:white;padding:5px;border-radius:15px;border-left:15px solid #96C2F1;background:#ddffff;box-sizing:border-box;">
+            <strong>Beautiful sentence</strong>
+            <script>
             fetch('https://api.eatrice.top')
               .then(response => response.json())
               .then(data => {
@@ -718,13 +729,10 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
                 rainbow.href = "https://rainbow.eatrice.top/?ID=" + data.ID;
                 })
               .catch(console.error)
-          </script>
-          <p id="rainbow">🌈 Getting data...</p>
-          </div>       
-
-      
-    </div>
+            </script>
+            <p id="rainbow">🌈 Getting data...</p>
 </div>
+
 
 <div style="width: 100%;margin-top: 15px;margin-buttom: 15px">
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>

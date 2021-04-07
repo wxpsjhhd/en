@@ -6,6 +6,8 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.3.0">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">  
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">  
 
 <script>
     (function () {
@@ -13,7 +15,7 @@
             if (prompt('请输入文章密码') !== '') {
                 alert('密码错误！');
                 if (history.length === 1) {
-                    location.replace("http://www.idefun.com/blog"); // 这里替换成你的首页
+                    location.replace("http://www.idefun.com/"); // 这里替换成你的首页
                 } else {
                     history.back();
                 }
@@ -567,11 +569,15 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
   
 
 }
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 15px;
+  color: black;
+}
 </style>
 
 <div width="100%" height="320px" style="border: 0px; overflow: hidden; border-radius: 10px; margin-bottom: 25px;" scrolling="no">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" style="float:left">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" style="float:left">
 
       <!-- 轮播（Carousel）指标 -->
       <ol class="carousel-indicators">
@@ -643,32 +649,66 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
 	</div>
 
 	<div  class="rights" style="width: 30%; height: 280px; margin-right: 0px;margin-left: 20px;float: left;">
-    <!-- 天气插件 -->
+    
       
+
+
+
+
+
+      <script src="https://unpkg.com/swiper/swiper-bundle.js"> </script>  
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"> </script>
+      <div class="swiper-container" style="width: 300px;border-radius: 15px">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="https://gitee.com/wxpgitee/images/raw/master/20210407090923.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="https://gitee.com/wxpgitee/images/raw/master/20210407092348.png" alt="">
+            </div>
+        </div>
+        <!-- 如果需要分页器 -->
+            <!--<div class="swiper-pagination"></div>-->
+            
+            <!-- 如果需要导航按钮 -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+    
+        <script>        
+            var mySwiper = new Swiper ('.swiper-container', {
+            autoplay: true,
+                //   direction: 'vertical', // 垂直切换选项
+              loop: true, // 循环模式选项
+            
+              // 如果需要分页器
+            pagination: {
+                el: '.swiper-pagination',
+            },
+            
+              // 如果需要前进后退按钮
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            
+              // 如果需要滚动条
+            //   scrollbar: {
+            //     el: '.swiper-scrollbar',
+            //   },
+            })        
+        </script>
+        </div>
+
+
+
+
+
+
+
+
       
-
-
-
-
-      <!-- 时光留影 -->
-      <div class="my-carousel">
-        <a href="/photos/" target="_blank">
-          <img class="right-siders nofancybox" src="https://gitee.com/wxpgitee/images/raw/master/20210321134608.png"/>
-        </a>
-      </div>
-
-      <!-- 订阅本站 -->
-      <div class="my-carousel">
-        <a href="/about/" target="_blank">
-          <img class="right-siders nofancybox" src="https://gitee.com/wxpgitee/images/raw/master/14.gif"/>
-        </a>
-      </div>
-
-      <div style="width:300px;heigh:200px;color:#76ebec;" id="rainbow-box">
+          <div style="width:300px;heigh:200px;color:#76ebec;">
           
-          <script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-          <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-          <!--rainbowapi-->
           <script>
             fetch('https://api.eatrice.top')
               .then(response => response.json())
@@ -680,23 +720,24 @@ eval(function(p,a,c,k,e,d){e=function(c){return(c<a?'':e(parseInt(c/a)))+((c=c%a
               .catch(console.error)
           </script>
           <p id="rainbow">🌈 Getting data...</p>
-      </div>
-    </div>
+          </div>       
 
+      
+    </div>
 </div>
 
 <div style="width: 100%;margin-top: 15px;margin-buttom: 15px">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- getmoney -->
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-8879606278129720"
-        data-ad-slot="1549628428"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <!-- getmoney -->
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-client="ca-pub-8879606278129720"
+          data-ad-slot="1549628428"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
 </div>
 
 

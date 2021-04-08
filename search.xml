@@ -386,54 +386,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello world</title>
-    <url>/article/8bd69e52.html</url>
-    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
-  </entry>
-  <entry>
-    <title>Decompile the source code of WeChat applet</title>
-    <url>/article/e2ccb572.html</url>
-    <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>
-<h2 id="1-Environmental-preparation"><a href="#1-Environmental-preparation" class="headerlink" title="1. Environmental preparation"></a>1. Environmental preparation</h2><ol>
-<li><p>Download node.js, go directly to <a href="https://nodejs.org/en/">official website</a> to download</p>
-</li>
-<li><p>Decompiled script</p>
-<p>Provided directly here, click <a href="https://wws.lanzous.com/iixTIifqaod">link</a> to download, and unzip after downloading</p>
-</li>
-<li><p>Mobile phone simulator</p>
-</li>
-<li><p>RE file manager (not required), I think this is better to operate</p>
-</li>
-</ol>
-<h2 id="2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package"><a href="#2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package" class="headerlink" title="2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)"></a>2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)</h2><h2 id="3-Find-the-WeChat-applet-source-file-package"><a href="#3-Find-the-WeChat-applet-source-file-package" class="headerlink" title="3. Find the WeChat applet source file package"></a>3. Find the WeChat applet source file package</h2><p>In the following directory,</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;data&#x2F;data&#x2F;com.tencent.mm&#x2F;MicroMsg&#x2F;&#123;&#123;a 32-bit hexadecimal string folder&#125;&#125;&#x2F;appbrand&#x2F;pkg&#x2F;</span><br></pre></td></tr></table></figure>
-<p>You will find some files of type <code>xxxxxxx.wxapkg</code>, these are the packages of the WeChat applet</p>
-<p><img src="https://img-blog.csdnimg.cn/img_convert/ca55d60ff87240b23dd635a4c55095dd.png" alt=""></p>
-<p>Determine the source file package based on time</p>
-<h2 id="4-Transfer-the-source-file-to-the-computer"><a href="#4-Transfer-the-source-file-to-the-computer" class="headerlink" title="4. Transfer the source file to the computer"></a>4. Transfer the source file to the computer</h2><p>It can be shared through the file sharing of the night god simulator, or you can install QQ, compress the source file and transfer it to the computer</p>
-<h2 id="5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd"><a href="#5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd" class="headerlink" title="5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd"></a>5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/870e49a8c940727ccd565c28ec462a74.png" alt=""></p>
-<p>Click OK, cd to this storage directory, enter the following command to install dependencies</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install esprima</span><br><span class="line">npm install css<span class="literal">-tree</span></span><br><span class="line">npm install cssbeautify</span><br><span class="line">npm install vm2</span><br><span class="line">npm install uglify<span class="literal">-es</span></span><br></pre></td></tr></table></figure>
-<h2 id="6-Decompile-the-wxapkg-file"><a href="#6-Decompile-the-wxapkg-file" class="headerlink" title="6. Decompile the .wxapkg file"></a>6. Decompile the .wxapkg file</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">node .\wuWxapkg.js D:\_<span class="literal">-472979937_90</span>.wxapkg</span><br><span class="line">D:\_<span class="literal">-472979937_90</span>.wxapkg change to the absolute directory <span class="built_in">where</span> you store the source files</span><br></pre></td></tr></table></figure>
-<p>Just run it, the following figure shows the successful operation</p>
-<p><img src="https://i.loli.net/2020/11/15/aporGMPjm974leN.gif" alt=""></p>
-<h2 id="7-About-errors"><a href="#7-About-errors" class="headerlink" title="7. About errors"></a>7. About errors</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">If Cannot find module&#39;xxx&#39; appears, it means the module is not installed</span><br><span class="line">Run the command npm install&#39;xxx&#39;, install dependencies</span><br><span class="line">If you encounter an error like __vd_version_info__ is not defined</span><br><span class="line">The solution is as follows:</span><br></pre></td></tr></table></figure>
-<p>Modify the code of the decompiled script wuWxss.js and replace the original code</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let vm&#x3D;new VM(&#123;sandbox:Object.assign(new GwxCfg(),&#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;)&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>To</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let gg &#x3D; new GwxCfg();</span><br><span class="line">    let tsandbox &#x3D;&#123;$gwx:GwxCfg.prototype[&quot;$gwx&quot;],__mainPageFrameReady__:GwxCfg.prototype[&quot;$gwx&quot;],__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;;</span><br><span class="line">    let vm &#x3D; new VM(&#123;sandbox:tsandbox&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file"><a href="#8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file" class="headerlink" title="8. Generate a folder after decompilation, which is the same directory as the source file"></a>8. Generate a folder after decompilation, which is the same directory as the source file</h2><p>Open the WeChat developer tool and import the applet</p>
-<p><strong>Remarks:</strong><br>Other platform applets can try on their own</p>
-<p><img src="https://img-blog.csdnimg.cn/20201201110158496.jpg#pic_center" alt=""></p>
-]]></content>
-      <categories>
-        <category>WeChat applet</category>
-      </categories>
-      <tags>
-        <tag>WeChat applet</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Solutions to github cannot be opened or slow to load</title>
     <url>/article/ffb90fd4.html</url>
     <content><![CDATA[<h1 id="Solutions-to-github-cannot-be-opened-or-slow-to-load"><a href="#Solutions-to-github-cannot-be-opened-or-slow-to-load" class="headerlink" title="Solutions to github cannot be opened or slow to load"></a>Solutions to github cannot be opened or slow to load</h1><a id="more"></a>
@@ -538,6 +490,136 @@
       </tags>
   </entry>
   <entry>
+    <title>git error report and solution inventory</title>
+    <url>/article/b66c7d01.html</url>
+    <content><![CDATA[<h1 id="git-error-report-and-solution-inventory"><a href="#git-error-report-and-solution-inventory" class="headerlink" title="git error report and solution inventory"></a>git error report and solution inventory</h1><a id="more"></a>
+<h2 id="Error-One"><a href="#Error-One" class="headerlink" title="Error One"></a>Error One</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: Failed to connect to github. com port 443: Timed out</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One"></a>Solution One</h3><ol>
+<li>Check your git configuration</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
+<p>If you don’t have any content related to https proxy, such as https_proxy=…, the problem is not here. If you have content related to https proxy, please delete it from the ~/.gitconfig file and try again</p>
+<ol>
+<li>If it still doesn’t work, please unset the environment variable</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>You should have one or a few lines https_proxy = … use the following to unset them one by one: unset https_proxy (or HTTPS_PROXY, depending on the name of the variable)</p>
+<ol>
+<li>Check the environment variables again</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
+<p>If it doesn’t show anything you should be good. Note: This solution can be applied to http and https proxy issues. Just change the variable name from https to http</p>
+<h3 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h3><ol>
+<li>Manually configure the git proxy. The git client can enter the following two commands</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+<ol>
+<li>Cancel proxy</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
+<h2 id="Error-two"><a href="#Error-two" class="headerlink" title="Error two"></a>Error two</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: failed to receive handshake ssl&#x2F;tls connection failed</span><br></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslBackend &quot;openssl&quot;</span><br><span class="line">git config --global http.sslCAInfo [path to .pem file]</span><br></pre></td></tr></table></figure>
+<h2 id="Error-three"><a href="#Error-three" class="headerlink" title="Error three"></a>Error three</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br></pre></td></tr></table></figure>
+<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>Encountering these problems is likely to be due to scientific Internet access, you can close it and try it. If you encounter these problems temporarily, you will make up for them later.</p>
+]]></content>
+      <categories>
+        <category>git</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Decompile the source code of WeChat applet</title>
+    <url>/article/e2ccb572.html</url>
+    <content><![CDATA[<h1 id="Decompile-the-source-code-of-WeChat-applet"><a href="#Decompile-the-source-code-of-WeChat-applet" class="headerlink" title="Decompile the source code of WeChat applet"></a>Decompile the source code of WeChat applet</h1><p>This article records the process of obtaining the source code of the WeChat applet through decompilation.</p>
+<h2 id="1-Environmental-preparation"><a href="#1-Environmental-preparation" class="headerlink" title="1. Environmental preparation"></a>1. Environmental preparation</h2><ol>
+<li><p>Download node.js, go directly to <a href="https://nodejs.org/en/">official website</a> to download</p>
+</li>
+<li><p>Decompiled script</p>
+<p>Provided directly here, click <a href="https://wws.lanzous.com/iixTIifqaod">link</a> to download, and unzip after downloading</p>
+</li>
+<li><p>Mobile phone simulator</p>
+</li>
+<li><p>RE file manager (not required), I think this is better to operate</p>
+</li>
+</ol>
+<h2 id="2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package"><a href="#2-Download-WeChat-in-the-night-god-simulator-and-log-in-find-the-small-program-you-want-to-get-the-source-code-and-run-it-is-recommended-not-to-open-the-small-program-immediately-after-logging-in-to-WeChat-otherwise-it-is-difficult-to-find-the-small-program-source-file-package" class="headerlink" title="2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)"></a>2. Download WeChat in the night god simulator and log in, find the small program you want to get the source code and run (it is recommended not to open the small program immediately after logging in to WeChat, otherwise it is difficult to find the small program source file package)</h2><h2 id="3-Find-the-WeChat-applet-source-file-package"><a href="#3-Find-the-WeChat-applet-source-file-package" class="headerlink" title="3. Find the WeChat applet source file package"></a>3. Find the WeChat applet source file package</h2><p>In the following directory,</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;data&#x2F;data&#x2F;com.tencent.mm&#x2F;MicroMsg&#x2F;&#123;&#123;a 32-bit hexadecimal string folder&#125;&#125;&#x2F;appbrand&#x2F;pkg&#x2F;</span><br></pre></td></tr></table></figure>
+<p>You will find some files of type <code>xxxxxxx.wxapkg</code>, these are the packages of the WeChat applet</p>
+<p><img src="https://img-blog.csdnimg.cn/img_convert/ca55d60ff87240b23dd635a4c55095dd.png" alt=""></p>
+<p>Determine the source file package based on time</p>
+<h2 id="4-Transfer-the-source-file-to-the-computer"><a href="#4-Transfer-the-source-file-to-the-computer" class="headerlink" title="4. Transfer the source file to the computer"></a>4. Transfer the source file to the computer</h2><p>It can be shared through the file sharing of the night god simulator, or you can install QQ, compress the source file and transfer it to the computer</p>
+<h2 id="5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd"><a href="#5-Find-the-storage-directory-of-the-decompiled-script-just-unzipped-then-win-R-open-the-following-window-and-enter-cmd" class="headerlink" title="5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd"></a>5. Find the storage directory of the decompiled script just unzipped, then win+R open the following window and enter cmd</h2><p><img src="https://img-blog.csdnimg.cn/img_convert/870e49a8c940727ccd565c28ec462a74.png" alt=""></p>
+<p>Click OK, cd to this storage directory, enter the following command to install dependencies</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm install esprima</span><br><span class="line">npm install css<span class="literal">-tree</span></span><br><span class="line">npm install cssbeautify</span><br><span class="line">npm install vm2</span><br><span class="line">npm install uglify<span class="literal">-es</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-Decompile-the-wxapkg-file"><a href="#6-Decompile-the-wxapkg-file" class="headerlink" title="6. Decompile the .wxapkg file"></a>6. Decompile the .wxapkg file</h2><figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">node .\wuWxapkg.js D:\_<span class="literal">-472979937_90</span>.wxapkg</span><br><span class="line">D:\_<span class="literal">-472979937_90</span>.wxapkg change to the absolute directory <span class="built_in">where</span> you store the source files</span><br></pre></td></tr></table></figure>
+<p>Just run it, the following figure shows the successful operation</p>
+<p><img src="https://i.loli.net/2020/11/15/aporGMPjm974leN.gif" alt=""></p>
+<h2 id="7-About-errors"><a href="#7-About-errors" class="headerlink" title="7. About errors"></a>7. About errors</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">If Cannot find module&#39;xxx&#39; appears, it means the module is not installed</span><br><span class="line">Run the command npm install&#39;xxx&#39;, install dependencies</span><br><span class="line">If you encounter an error like __vd_version_info__ is not defined</span><br><span class="line">The solution is as follows:</span><br></pre></td></tr></table></figure>
+<p>Modify the code of the decompiled script wuWxss.js and replace the original code</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let vm&#x3D;new VM(&#123;sandbox:Object.assign(new GwxCfg(),&#123;__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;)&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>To</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">function runVM(name,code)&#123;</span><br><span class="line">    let wxAppCode&#x3D;&#123;&#125;,handle&#x3D;&#123;cssFile:name&#125;;</span><br><span class="line">    let gg &#x3D; new GwxCfg();</span><br><span class="line">    let tsandbox &#x3D;&#123;$gwx:GwxCfg.prototype[&quot;$gwx&quot;],__mainPageFrameReady__:GwxCfg.prototype[&quot;$gwx&quot;],__wxAppCode__:wxAppCode,setCssToHead:cssRebuild.bind(handle)&#125;;</span><br><span class="line">    let vm &#x3D; new VM(&#123;sandbox:tsandbox&#125;);</span><br><span class="line">    vm.run(code);</span><br><span class="line">    for(let name in wxAppCode)if(name.endsWith(&quot;.wxss&quot;))&#123;</span><br><span class="line">        handle.cssFile&#x3D;path.resolve(frameName,&quot;..&quot;,name);</span><br><span class="line">        wxAppCode[name]();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file"><a href="#8-Generate-a-folder-after-decompilation-which-is-the-same-directory-as-the-source-file" class="headerlink" title="8. Generate a folder after decompilation, which is the same directory as the source file"></a>8. Generate a folder after decompilation, which is the same directory as the source file</h2><p>Open the WeChat developer tool and import the applet</p>
+<p><strong>Remarks:</strong><br>Other platform applets can try on their own</p>
+<p><img src="https://img-blog.csdnimg.cn/20201201110158496.jpg#pic_center" alt=""></p>
+]]></content>
+      <categories>
+        <category>WeChat applet</category>
+      </categories>
+      <tags>
+        <tag>WeChat applet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</title>
+    <url>/article/7ef2d97.html</url>
+    <content><![CDATA[<h1 id="Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling"><a href="#Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling" class="headerlink" title="Solve the problem that Google Chrome cannot be reinstalled after uninstalling"></a>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</h1><a id="more"></a>
+<p>Are you scorched on the road to reinstalling after uninstalling Google? Can’t install after downloading over and over again? (This is really good for the moment to uninstall, it’s easy to uninstall and difficult to reinstall)</p>
+<p>No matter how you download it, you can’t install it. You anxiously ask Du Niang for help. Baidu comes out a bunch of tutorials, but you don’t know which one is effective, so you have to try the operations that you don’t understand one by one. (Hey, don’t rush to deny it, I used to be such).</p>
+<p>These methods are also reasonable, Google cannot be installed, usually because the computer has installed Google Chrome before, so that the Google Chrome registry is still left in the system, causing the reinstallation to fail. </p>
+<p>According to the tutorials given on the Internet, I had a fierce operation (whatever it was, I just deleted it randomly), and then I installed Google, but I couldn’t install it again (I tried it over and over again, but it didn’t work, and it was about to crash. ), there is an urge to smash the keyboard (no more Google, let you bully me).</p>
+<p>But to be honest, Google is really easy to use, and I am not willing to abandon it. I tinkered and tinkered and finally found a solution. Here, I have also listed my attempts.</p>
+<p>The solution is as follows:</p>
+<h2 id="method-one"><a href="#method-one" class="headerlink" title="method one:"></a><strong>method one:</strong></h2><ol>
+<li><p>Open the computer “Run” (shortcut key windows+R, you can also right-click the “Start” button in the lower left corner of the computer and then click “Run”). Then enter “regedit” and click “OK” (a registry editor item will come out, click “Yes”)</p>
+</li>
+<li><p>Go to the “Computer\HKEY_CURRENT_USER\Software\Google” folder one by one and delete it</p>
+</li>
+<li><p>If you can’t view the Google files, you can try to press and hold the shortcut key Ctrl+F in the registration list to find it, and then delete the related items in the Google browser, so that the Google registry can be cleaned up. , After deleting the remaining files related to Google Chrome, you can try to install Google Chrome again</p>
+</li>
+</ol>
+<h2 id="Method-Two"><a href="#Method-Two" class="headerlink" title="Method Two:"></a><strong><em>Method Two:</em></strong></h2><ol>
+<li><p>Open 360 Security Guard, select the computer to clean up</p>
+</li>
+<li><p>Click Single Cleanup, select “Clean Registry”</p>
+</li>
+<li><p>Click “One-click cleanup”, and then install Google (if you still report an error, try to restart the computer)</p>
+</li>
+</ol>
+<h2 id="Method-Three"><a href="#Method-Three" class="headerlink" title="Method Three:"></a>Method Three:</h2><ol>
+<li><p>Create a new text file (notepad is not recommended, I use notepad++, I created one directly on the desktop)</p>
+</li>
+<li><p>Copy and paste the following code in the file</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">;WARNING, this file will remove Google Chrome registry entries</span><br><span class="line"></span><br><span class="line">;from your Windows Registry. Consider backing up your registry before</span><br><span class="line"></span><br><span class="line">; using this file: http://support.microsoft.com/kb/322756</span><br><span class="line"></span><br><span class="line">; To run this file, save it as<span class="string">&#x27;remove.reg&#x27;</span> on your desktop and double-click it.</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ChromeHTML]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Clients\StartMenuInternet\chrome.exe]</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;Chrome&quot;</span>=-</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\SOFTWARE\Classes\ChromeHTML]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\SOFTWARE\Clients\StartMenuInternet\chrome.exe]</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\SOFTWARE\RegisteredApplications]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;Chrome&quot;</span>=-</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\Chrome]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\ClientState\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\Clients\&#123;00058422-BABE-4310-9B8B-B8DEB5D0B68A&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\ClientState\&#123;00058422-BABE-4310-9B8B-B8DEB5D0B68A&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\ClientStateMedium\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\ClientState\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>Name the file rm.reg</p>
+</li>
+<li><p>Double-click to run (some options may come out, I defaulted), and then reinstall Google</p>
+</li>
+</ol>
+<h2 id="Method-Four"><a href="#Method-Four" class="headerlink" title="Method Four:"></a>Method Four:</h2><p>I heard that geek uninstall software can delete the registry, so you can use it to uninstall Google, and there will be no problem with reinstalling. (Maybe for most people, this method has little meaning)<br>Give link<br> Link: <a href="https://pan.baidu.com/s/1qaDZ05A9yD1jhOcUeQppuA">https://pan.baidu.com/s/1qaDZ05A9yD1jhOcUeQppuA</a><br> Extraction code: 386a</p>
+<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks:"></a>Remarks:</h2><p>This article only records my hard time in reinstalling Google. The above methods are collected from the Internet. If you have the same problem as me, you can try it to save your time on Baidu. If you don’t understand the third method, there is a ready-made file, here is a link: <a href="https://download.csdn.net/download/moshangduanchang/12354433">Click here</a></p>
+]]></content>
+      <tags>
+        <tag>Google Chrome</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Setup and use of BurpSuite</title>
     <url>/article/ec9575bf.html</url>
     <content><![CDATA[<h1 id="Setup-and-use-of-BurpSuite"><a href="#Setup-and-use-of-BurpSuite" class="headerlink" title="Setup and use of BurpSuite"></a>Setup and use of BurpSuite</h1><a id="more"></a>
@@ -599,47 +681,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git error report and solution inventory</title>
-    <url>/article/b66c7d01.html</url>
-    <content><![CDATA[<h1 id="git-error-report-and-solution-inventory"><a href="#git-error-report-and-solution-inventory" class="headerlink" title="git error report and solution inventory"></a>git error report and solution inventory</h1><a id="more"></a>
-<h2 id="Error-One"><a href="#Error-One" class="headerlink" title="Error One"></a>Error One</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: Failed to connect to github. com port 443: Timed out</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-One"><a href="#Solution-One" class="headerlink" title="Solution One"></a>Solution One</h3><ol>
-<li>Check your git configuration</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global -l</span><br></pre></td></tr></table></figure>
-<p>If you don’t have any content related to https proxy, such as https_proxy=…, the problem is not here. If you have content related to https proxy, please delete it from the ~/.gitconfig file and try again</p>
-<ol>
-<li>If it still doesn’t work, please unset the environment variable</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
-<p>You should have one or a few lines https_proxy = … use the following to unset them one by one: unset https_proxy (or HTTPS_PROXY, depending on the name of the variable)</p>
-<ol>
-<li>Check the environment variables again</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">env|grep -i proxy</span><br></pre></td></tr></table></figure>
-<p>If it doesn’t show anything you should be good. Note: This solution can be applied to http and https proxy issues. Just change the variable name from https to http</p>
-<h3 id="Solution-Two"><a href="#Solution-Two" class="headerlink" title="Solution Two"></a>Solution Two</h3><ol>
-<li>Manually configure the git proxy. The git client can enter the following two commands</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">git config --global https.proxy http:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
-<ol>
-<li>Cancel proxy</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global --unset http.proxy</span><br><span class="line">git config --global --unset https.proxy</span><br></pre></td></tr></table></figure>
-<h2 id="Error-two"><a href="#Error-two" class="headerlink" title="Error two"></a>Error two</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: failed to receive handshake ssl&#x2F;tls connection failed</span><br></pre></td></tr></table></figure>
-<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslBackend &quot;openssl&quot;</span><br><span class="line">git config --global http.sslCAInfo [path to .pem file]</span><br></pre></td></tr></table></figure>
-<h2 id="Error-three"><a href="#Error-three" class="headerlink" title="Error three"></a>Error three</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fatal: unable to access&#39;https:&#x2F;&#x2F;github.com&#x2F;.......git&#x2F;&#39;: OpenSSL SSL_read: Connection was reset, errno 10054</span><br></pre></td></tr></table></figure>
-<h3 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global http.sslVerify &quot;false&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks"></a>Remarks</h2><p>Encountering these problems is likely to be due to scientific Internet access, you can close it and try it. If you encounter these problems temporarily, you will make up for them later.</p>
-]]></content>
-      <categories>
-        <category>git</category>
-      </categories>
-      <tags>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Teach you how to build your own network disk resource search engine</title>
     <url>/article/516ed4a7.html</url>
     <content><![CDATA[<h1 id="Teach-you-how-to-build-your-own-network-disk-resource-search"><a href="#Teach-you-how-to-build-your-own-network-disk-resource-search" class="headerlink" title="Teach you how to build your own network disk resource search"></a>Teach you how to build your own network disk resource search</h1><a id="more"></a>
@@ -659,49 +700,8 @@
       </tags>
   </entry>
   <entry>
-    <title>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</title>
-    <url>/article/7ef2d97.html</url>
-    <content><![CDATA[<h1 id="Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling"><a href="#Solve-the-problem-that-Google-Chrome-cannot-be-reinstalled-after-uninstalling" class="headerlink" title="Solve the problem that Google Chrome cannot be reinstalled after uninstalling"></a>Solve the problem that Google Chrome cannot be reinstalled after uninstalling</h1><a id="more"></a>
-<p>Are you scorched on the road to reinstalling after uninstalling Google? Can’t install after downloading over and over again? (This is really good for the moment to uninstall, it’s easy to uninstall and difficult to reinstall)</p>
-<p>No matter how you download it, you can’t install it. You anxiously ask Du Niang for help. Baidu comes out a bunch of tutorials, but you don’t know which one is effective, so you have to try the operations that you don’t understand one by one. (Hey, don’t rush to deny it, I used to be such).</p>
-<p>These methods are also reasonable, Google cannot be installed, usually because the computer has installed Google Chrome before, so that the Google Chrome registry is still left in the system, causing the reinstallation to fail. </p>
-<p>According to the tutorials given on the Internet, I had a fierce operation (whatever it was, I just deleted it randomly), and then I installed Google, but I couldn’t install it again (I tried it over and over again, but it didn’t work, and it was about to crash. ), there is an urge to smash the keyboard (no more Google, let you bully me).</p>
-<p>But to be honest, Google is really easy to use, and I am not willing to abandon it. I tinkered and tinkered and finally found a solution. Here, I have also listed my attempts.</p>
-<p>The solution is as follows:</p>
-<h2 id="method-one"><a href="#method-one" class="headerlink" title="method one:"></a><strong>method one:</strong></h2><ol>
-<li><p>Open the computer “Run” (shortcut key windows+R, you can also right-click the “Start” button in the lower left corner of the computer and then click “Run”). Then enter “regedit” and click “OK” (a registry editor item will come out, click “Yes”)</p>
-</li>
-<li><p>Go to the “Computer\HKEY_CURRENT_USER\Software\Google” folder one by one and delete it</p>
-</li>
-<li><p>If you can’t view the Google files, you can try to press and hold the shortcut key Ctrl+F in the registration list to find it, and then delete the related items in the Google browser, so that the Google registry can be cleaned up. , After deleting the remaining files related to Google Chrome, you can try to install Google Chrome again</p>
-</li>
-</ol>
-<h2 id="Method-Two"><a href="#Method-Two" class="headerlink" title="Method Two:"></a><strong><em>Method Two:</em></strong></h2><ol>
-<li><p>Open 360 Security Guard, select the computer to clean up</p>
-</li>
-<li><p>Click Single Cleanup, select “Clean Registry”</p>
-</li>
-<li><p>Click “One-click cleanup”, and then install Google (if you still report an error, try to restart the computer)</p>
-</li>
-</ol>
-<h2 id="Method-Three"><a href="#Method-Three" class="headerlink" title="Method Three:"></a>Method Three:</h2><ol>
-<li><p>Create a new text file (notepad is not recommended, I use notepad++, I created one directly on the desktop)</p>
-</li>
-<li><p>Copy and paste the following code in the file</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Windows Registry Editor Version 5.00</span><br><span class="line"></span><br><span class="line">;WARNING, this file will remove Google Chrome registry entries</span><br><span class="line"></span><br><span class="line">;from your Windows Registry. Consider backing up your registry before</span><br><span class="line"></span><br><span class="line">; using this file: http://support.microsoft.com/kb/322756</span><br><span class="line"></span><br><span class="line">; To run this file, save it as<span class="string">&#x27;remove.reg&#x27;</span> on your desktop and double-click it.</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Classes\ChromeHTML]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Clients\StartMenuInternet\chrome.exe]</span><br><span class="line"></span><br><span class="line">[HKEY_LOCAL_MACHINE\SOFTWARE\RegisteredApplications]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;Chrome&quot;</span>=-</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\SOFTWARE\Classes\ChromeHTML]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\SOFTWARE\Clients\StartMenuInternet\chrome.exe]</span><br><span class="line"></span><br><span class="line">[HKEY_CURRENT_USER\SOFTWARE\RegisteredApplications]</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;Chrome&quot;</span>=-</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall\Chrome]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\ClientState\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\Clients\&#123;00058422-BABE-4310-9B8B-B8DEB5D0B68A&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_CURRENT_USER\Software\Google\Update\ClientState\&#123;00058422-BABE-4310-9B8B-B8DEB5D0B68A&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\ClientStateMedium\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Google\Update\ClientState\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br><span class="line"></span><br><span class="line">[-HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Google\Update\Clients\&#123;8A69D345-D564-463c-AFF1-A69D9E530F96&#125;]</span><br></pre></td></tr></table></figure>
-<ol>
-<li><p>Name the file rm.reg</p>
-</li>
-<li><p>Double-click to run (some options may come out, I defaulted), and then reinstall Google</p>
-</li>
-</ol>
-<h2 id="Method-Four"><a href="#Method-Four" class="headerlink" title="Method Four:"></a>Method Four:</h2><p>I heard that geek uninstall software can delete the registry, so you can use it to uninstall Google, and there will be no problem with reinstalling. (Maybe for most people, this method has little meaning)<br>Give link<br> Link: <a href="https://pan.baidu.com/s/1qaDZ05A9yD1jhOcUeQppuA">https://pan.baidu.com/s/1qaDZ05A9yD1jhOcUeQppuA</a><br> Extraction code: 386a</p>
-<h2 id="Remarks"><a href="#Remarks" class="headerlink" title="Remarks:"></a>Remarks:</h2><p>This article only records my hard time in reinstalling Google. The above methods are collected from the Internet. If you have the same problem as me, you can try it to save your time on Baidu. If you don’t understand the third method, there is a ready-made file, here is a link: <a href="https://download.csdn.net/download/moshangduanchang/12354433">Click here</a></p>
-]]></content>
-      <tags>
-        <tag>Google Chrome</tag>
-      </tags>
+    <title>Hello world</title>
+    <url>/article/8bd69e52.html</url>
+    <content><![CDATA[<h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello world!"></a>Hello world!</h1><a id="more"></a>]]></content>
   </entry>
 </search>

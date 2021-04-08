@@ -102,13 +102,6 @@
 
   
   <url>
-    <loc>http://en.idefun.com/tags/assembly-language/</loc>
-    <lastmod>2021-04-08</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://en.idefun.com/tags/WeChat-applet/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
@@ -116,7 +109,7 @@
   </url>
   
   <url>
-    <loc>http://en.idefun.com/tags/github/</loc>
+    <loc>http://en.idefun.com/tags/assembly-language/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -130,7 +123,7 @@
   </url>
   
   <url>
-    <loc>http://en.idefun.com/tags/git/</loc>
+    <loc>http://en.idefun.com/tags/github/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -150,14 +143,14 @@
     <priority>0.6</priority>
   </url>
   
-
-  
   <url>
-    <loc>http://en.idefun.com/categories/assembly-language/</loc>
+    <loc>http://en.idefun.com/tags/git/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
+  
+
   
   <url>
     <loc>http://en.idefun.com/categories/WeChat-applet/</loc>
@@ -167,7 +160,7 @@
   </url>
   
   <url>
-    <loc>http://en.idefun.com/categories/github/</loc>
+    <loc>http://en.idefun.com/categories/assembly-language/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -175,6 +168,13 @@
   
   <url>
     <loc>http://en.idefun.com/categories/hack/</loc>
+    <lastmod>2021-04-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://en.idefun.com/categories/github/</loc>
     <lastmod>2021-04-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
